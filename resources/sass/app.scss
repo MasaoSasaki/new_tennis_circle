@@ -1,0 +1,250 @@
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+h1 {
+  font-size: 1.2rem;
+  font-family: cursive;
+  margin-bottom: 0;
+}
+
+header {
+  text-align: center;
+}
+
+main {
+  font-family: 'Nunito';
+
+  .welcome {
+    text-align: center;
+  }
+
+  .card-header {
+    text-align: center;
+  }
+
+  .admin {
+
+    &-album-index {
+      text-align: center;
+
+      form {
+        display: inline;
+
+        button {
+          padding: 0;
+          background: unset;
+          border: unset;
+        }
+      }
+
+      ul {
+        list-style: none;
+
+        .title-link, .edit-link {
+          color: unset;
+        }
+
+        .title-link {
+          text-decoration: underline;
+        }
+      }
+    }
+    &-album-create {
+      text-align: center;
+
+      ul {
+        padding: 0;
+        text-align: left;
+        list-style: none;
+      }
+      #image-preview-list {
+        position: relative;
+
+        li {
+          display: inline;
+
+          img {
+            width: 60px;
+            height: 60px;
+            border-radius: 20%;
+            border: solid 2px #ddd;
+            object-fit: cover;
+          }
+
+          @for $i from 2 to 20 {
+            &:nth-of-type(#{$i}) {
+              position: absolute;
+              top: 0;
+              left: 20px * ($i - 1);
+              z-index: $i;
+            }
+          }
+        }
+      }
+    }
+    &-album-edit {
+      text-align: center;
+
+      .create-images {
+
+        ul {
+          text-align: left;
+        }
+
+        #image-preview-list {
+          padding: 0;
+          list-style: none;
+          position: relative;
+          perspective: 300px;
+
+          li {
+            transform: rotateY(60deg);
+            transform-origin: left center;
+
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 20%;
+              border: solid 2px #ddd;
+              object-fit: cover;
+            }
+
+            @for $i from 2 to 20 {
+              &:nth-of-type(#{$i}) {
+                position: absolute;
+                top: 0;
+                left: 20px * ($i - 1);
+                z-index: $i;
+              }
+            }
+            &:nth-last-of-type(1) {
+              width: 60px;
+              height: 60px;
+              background: rgba(255, 255, 255, 0.9);
+              border-radius: 20%;
+              border: solid 2px #ddd;
+              text-align: center;
+              transform: none;
+              transform-origin: none;
+              perspective: none;
+
+              span {
+                line-height: 60px;
+                font-family: 'Roboto';
+                font-weight: bold;
+                font-size: large;
+                color: #97D3E5;
+              }
+            }
+          }
+        }
+      }
+
+      .delete-images {
+        margin-top: 10px;
+
+        ul {
+          padding: 0;
+          display: flex;
+          list-style: none;
+          flex-wrap: wrap;
+
+          li {
+            margin-bottom: 20px;
+            display: inline;
+            flex: 25%;
+
+            img {
+              width: 100px;
+              height: 100px;
+              padding: 5px;
+              border-radius: 20%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+    &-image-index {
+
+      .images {
+
+        img {
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  .album {
+
+    &-index {
+
+      .card {
+        margin-bottom: 20px;
+
+        a {
+          color: unset;
+        }
+
+        .card-body {
+          padding: 2rem;
+
+          .images {
+
+            ul {
+              padding: 0;
+              list-style: none;
+              overflow: hidden;
+              position: relative;
+              z-index: 1;
+
+              li {
+
+                img {
+                  width: 200px;
+                  height: 150px;
+                  border: solid 2px #ddd;
+                  border-radius: 50px;
+                  position: relative;
+                  z-index: -1;
+                }
+              }
+
+              .li-0 {
+                box-shadow: -30px 0px 10px 0px white inset;
+              }
+              .li-1 {
+                position: absolute;
+                top: 0;
+                left: 30px
+              }
+              .li-2 {
+                position: absolute;
+                top: 0;
+                left: 200px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-show {
+
+      img {
+        width: 40%;
+      }
+    }
+  }
+}
+
+footer {
+  padding: 0.5rem 1rem;
+  line-height: 60px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
