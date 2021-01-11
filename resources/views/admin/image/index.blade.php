@@ -17,7 +17,7 @@
             @csrf
               <div class="form-group">
                 <label for="image">イベント画像</label>
-                <input id="file-form" class="form-control-file" type="file" name="file" accept="image/x-png, image/gif, image/jpeg">
+                <input id="file-form" class="form-control-file" type="file" name="file" accept="image/x-png, image/gif, image/jpeg, image/jpg">
               </div>
               <ul id="image-preview-list"></ul>
               <button id="add-new-album-btn" class="btn btn-primary" type="submit">追加保存</button>
