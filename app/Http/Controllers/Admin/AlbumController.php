@@ -28,8 +28,10 @@ class AlbumController extends Controller
     $album->body = $request->body;
     $album->save();
     $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
-    foreach ($request->file('files') as $image) {
-      Storage::disk('s3')->putFile($albumFolder, $image, 'public');
+    if($request->file('files')) {
+      forEach($request->file('files') as $image) {
+        Storage::disk('s3')->putFile($albumFolder, $image, 'public');
+      }
     }
     return redirect('admin/albums')->with('success', '作成が完了しました。');
   }
