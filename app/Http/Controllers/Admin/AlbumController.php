@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Album;
+use Illuminate\Support\Facades\Session;
+
 
 class AlbumController extends Controller
 {
@@ -23,12 +25,22 @@ class AlbumController extends Controller
   public function store(Request $request)
   {
     $album = new Album;
-    $album->user_id = 1;
-    $album->title = $request->title;
-    $album->body = $request->body;
-    $album->save();
-    $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
+    $album['title'] = $request['title'];
+    $album['body'] = $request['body'];
+    switch(true) {
+      case $album['title'] == null:
+        Session::put('danger', 'タイトルが入力されていません。');
+        return view('admin/album/create', compact('album'));
+      case $album['body'] == null:
+        Session::put('danger', 'コメントが入力されていません。');
+        return view('admin/album/create', compact('album'));
+      default :
+        Session::forget('danger');
+        Session::save();
+        $album->save();
+    }
     if($request->file('files')) {
+      $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
       forEach($request->file('files') as $image) {
         Storage::disk('s3')->putFile($albumFolder, $image, 'public');
       }
@@ -51,10 +63,26 @@ class AlbumController extends Controller
   public function update(Request $request, $id)
   {
     $album = Album::findOrFail($id);
-    $album->title = $request->title;
-    $album->body = $request->body;
-    $album->save();
-    $albums = Album::all();
+    $album['title'] = $request['title'];
+    $album['body'] = $request['body'];
+    $folderName = getFolderName($album);
+    $filePaths = Storage::disk('s3')->files($folderName);
+    $fileNames = array();
+    forEach($filePaths as $filePath) {
+      array_push($fileNames, getFileNameOfFilePath($filePath));
+    }
+    switch(true) {
+      case $album['title'] == null:
+        Session::put('danger', 'タイトルが入力されていません。');
+        return view("admin/album/edit", compact('fileNames', 'album', 'folderName'));
+      case $album['body'] == null:
+        Session::put('danger', 'コメントが入力されていません。');
+        return view("admin/album/edit", compact('fileNames', 'album', 'folderName'));
+      default :
+        Session::forget('danger');
+        Session::save();
+        $album->save();
+      }
     return redirect('admin/albums')->with('success', '更新が完了しました。');
   }
 
