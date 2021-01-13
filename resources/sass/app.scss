@@ -61,10 +61,14 @@ main {
         list-style: none;
       }
       #image-preview-list {
+        padding: 0;
+        list-style: none;
         position: relative;
+        perspective: 300px;
 
         li {
-          display: inline;
+          transform: rotateY(60deg);
+          transform-origin: left center;
 
           img {
             width: 60px;
@@ -80,6 +84,25 @@ main {
               top: 0;
               left: 20px * ($i - 1);
               z-index: $i;
+            }
+          }
+          &:nth-last-of-type(1) {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20%;
+            border: solid 2px #ddd;
+            text-align: center;
+            transform: none;
+            transform-origin: none;
+            perspective: none;
+
+            span {
+              line-height: 60px;
+              font-family: 'Roboto';
+              font-weight: bold;
+              font-size: large;
+              color: #97D3E5;
             }
           }
         }
