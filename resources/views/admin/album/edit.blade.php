@@ -24,7 +24,7 @@
             @csrf
               <div class="form-group">
                 <label for="image">イベント画像</label>
-                <input id="file-form" class="form-control-file" type="file" name="files[]" multiple onChange="previewImages(this);" accept="image/x-png, image/gif, image/jpeg, image/jpg">
+                <input id="file-form" class="form-control-file" type="file" name="files[]" multiple onChange="previewImages(this);" accept="image/x-png, image/jpeg, image/jpg">
               </div>
               <ul id="image-preview-list"></ul>
               <ul id="file-list"></ul>
