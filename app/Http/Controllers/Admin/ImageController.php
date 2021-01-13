@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Album;
+use Illuminate\Support\Facades\Session;
 
 class ImageController extends Controller
 {
@@ -27,6 +28,22 @@ class ImageController extends Controller
     $id = $request['id'];
     $album = Album::findOrFail($id);
     $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
+    $folderName = getFolderName($album);
+    $filePaths = Storage::disk('s3')->files($folderName);
+    $fileNames = array();
+    forEach($filePaths as $filePath) {
+      array_push($fileNames, getFileNameOfFilePath($filePath));
+    }
+
+    // logger($request->file('files'));
+    // 画像が選択されていなかったらreturn
+    Session::forget('danger');
+    Session::save();
+    if (empty($request->file('files'))) {
+      Session::put('danger', '画像が選択されていません。');
+      return view('admin/album/edit', compact('fileNames', 'album', 'folderName'));
+    }
+
     foreach ($request->file('files') as $image) {
       Storage::disk('s3')->putFile($albumFolder, $image, 'public');
     }

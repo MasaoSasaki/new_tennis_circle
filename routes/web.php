@@ -25,11 +25,11 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 Route::group(['middleware' => 'basicauth'], function() {
-  Route::resource('admin/albums', AdminAlbumController::class)->except(['show']);
-  Route::get('admin/home', [AdminHomeController::class, 'index']);
-  Route::resource('admin/images', AdminImageController::class)->only(['index', 'store']);
-  Route::post('admin/images/create', [AdminImageController::class, 'createImage']);
-  Route::post('admin/images/{id}', [AdminImageController::class, 'destroyImage']);
+  Route::resource('/admin/albums', AdminAlbumController::class)->except(['show']);
+  Route::get('/admin', [AdminHomeController::class, 'index']);
+  Route::resource('/admin/images', AdminImageController::class)->only(['index', 'store']);
+  Route::post('/admin/images/create', [AdminImageController::class, 'createImage']);
+  Route::post('/admin/images/{id}', [AdminImageController::class, 'destroyImage']);
 });
 
 Auth::routes();
