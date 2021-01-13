@@ -10909,6 +10909,11 @@ h1 {
   margin-bottom: 0;
 }
 
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 header {
   text-align: center;
 }
@@ -10979,8 +10984,6 @@ main .admin-album-create #image-preview-list li img {
   height: 60px;
   border-radius: 20%;
   border: solid 2px #ddd;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 main .admin-album-create #image-preview-list li:nth-of-type(2) {
@@ -11154,8 +11157,6 @@ main .admin-album-edit .create-images #image-preview-list li img {
   height: 60px;
   border-radius: 20%;
   border: solid 2px #ddd;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 main .admin-album-edit .create-images #image-preview-list li:nth-of-type(2) {
@@ -11326,8 +11327,6 @@ main .admin-album-edit .delete-images ul li img {
   height: 100px;
   padding: 5px;
   border-radius: 20%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 main .admin-image-index .images img {

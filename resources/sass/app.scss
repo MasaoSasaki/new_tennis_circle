@@ -10,6 +10,10 @@ h1 {
   margin-bottom: 0;
 }
 
+img {
+  object-fit: cover;
+}
+
 header {
   text-align: center;
 }
@@ -75,7 +79,6 @@ main {
             height: 60px;
             border-radius: 20%;
             border: solid 2px #ddd;
-            object-fit: cover;
           }
 
           @for $i from 2 to 20 {
@@ -132,7 +135,6 @@ main {
               height: 60px;
               border-radius: 20%;
               border: solid 2px #ddd;
-              object-fit: cover;
             }
 
             @for $i from 2 to 20 {
@@ -185,7 +187,6 @@ main {
               height: 100px;
               padding: 5px;
               border-radius: 20%;
-              object-fit: cover;
             }
           }
         }
