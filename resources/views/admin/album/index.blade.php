@@ -19,7 +19,7 @@
             @endforeach
           </ul>
           <hr size="10" color="#ccc">
-          <a href="/admin/home">管理画面へもどる</a>
+          <a href="/admin">管理画面へもどる</a>
         </div>
       </div>
     </div>

@@ -10962,9 +10962,7 @@ main .admin-album-create {
 }
 
 main .admin-album-create ul {
-  padding: 0;
   text-align: left;
-  list-style: none;
 }
 
 main .admin-album-create #image-preview-list {

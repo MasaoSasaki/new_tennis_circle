@@ -9,11 +9,11 @@
             @csrf
             <div class="form-group">
               <label for="title">イベント名</label>
-              <input class="form-control" type="text" name="title" value="{{ isset($album) ? $album['title'] : '' }}">
+              <input class="form-control" type="text" name="title" value="{{ isset($album) ? $album['title'] : '' }}" required>
             </div>
             <div class="form-group">
               <label for="body">コメント</label>
-              <textarea class="form-control" name="body">{{!! isset($album) ? $album['body'] : '' !!}}</textarea>
+              <textarea class="form-control" name="body" required>{{ isset($album) ? $album['body'] : '' }}</textarea>
             </div>
             <div class="form-group">
               <label for="image">イベント画像</label>
@@ -24,7 +24,7 @@
             <button id="add-new-album-btn" class="btn btn-primary" type="submit">保存</button>
           </form>
           <hr size="10" color="#ccc">
-          <a href="/admin/home">管理画面へもどる</a>
+          <a href="/admin">管理画面へもどる</a>
         </div>
       </div>
     </div>

@@ -10,11 +10,11 @@
             <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
               <label for="title">イベント名</label>
-              <input class="form-control" type="text" name="title" value="{{ $album->title }}">
+              <input class="form-control" type="text" name="title" value="{{ $album->title }}" required>
             </div>
             <div class="form-group">
               <label for="body">コメント</label>
-              <textarea class="form-control" type="text" name="body">{!! $album->body !!}</textarea>
+              <textarea class="form-control" type="text" name="body" required>{!! $album->body !!}</textarea>
             </div>
             <button class="btn btn-primary" type="submit">更新</button>
           </form>
