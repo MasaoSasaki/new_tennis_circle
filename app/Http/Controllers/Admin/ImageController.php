@@ -35,10 +35,9 @@ class ImageController extends Controller
       array_push($fileNames, getFileNameOfFilePath($filePath));
     }
 
-    // logger($request->file('files'));
     // 画像が選択されていなかったらreturn
     if (empty($request->file('files'))) {
-      return redirect("admin/album/$id/edit")->with('danger', '画像選択されていません。');
+      return redirect("admin/albums/$id/edit")->with('danger', '画像選択されていません。');
     }
 
     foreach ($request->file('files') as $image) {
