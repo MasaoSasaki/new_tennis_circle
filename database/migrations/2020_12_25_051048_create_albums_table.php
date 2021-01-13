@@ -15,9 +15,9 @@ class CreateAlbumsTable extends Migration
   {
     Schema::create('albums', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('user_id')->constrained();
       $table->string('title');
       $table->text('body');
+      $table->boolean('isPublished')->default(false);
       $table->timestamps();
     });
   }
