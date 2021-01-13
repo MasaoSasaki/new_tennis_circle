@@ -16,7 +16,6 @@ class UserSeeder extends Seeder
   {
     DB::table('users')->truncate();
     $user = [
-      'name' => 'user',
       'email' => 'user@example.com',
       'password' => bcrypt('user')
     ];
