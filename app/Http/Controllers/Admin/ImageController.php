@@ -37,11 +37,8 @@ class ImageController extends Controller
 
     // logger($request->file('files'));
     // 画像が選択されていなかったらreturn
-    Session::forget('danger');
-    Session::save();
     if (empty($request->file('files'))) {
-      Session::put('danger', '画像が選択されていません。');
-      return view('admin/album/edit', compact('fileNames', 'album', 'folderName'));
+      return redirect("admin/album/$id/edit")->with('danger', '画像選択されていません。');
     }
 
     foreach ($request->file('files') as $image) {

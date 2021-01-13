@@ -27,18 +27,7 @@ class AlbumController extends Controller
     $album = new Album;
     $album['title'] = $request['title'];
     $album['body'] = $request['body'];
-    switch(true) {
-      case $album['title'] == null:
-        Session::put('danger', 'タイトルが入力されていません。');
-        return view('admin/album/create', compact('album'));
-      case $album['body'] == null:
-        Session::put('danger', 'コメントが入力されていません。');
-        return view('admin/album/create', compact('album'));
-      default :
-        Session::forget('danger');
-        Session::save();
-        $album->save();
-    }
+    $album->save();
     if($request->file('files')) {
       $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
       forEach($request->file('files') as $image) {
@@ -65,24 +54,7 @@ class AlbumController extends Controller
     $album = Album::findOrFail($id);
     $album['title'] = $request['title'];
     $album['body'] = $request['body'];
-    $folderName = getFolderName($album);
-    $filePaths = Storage::disk('s3')->files($folderName);
-    $fileNames = array();
-    forEach($filePaths as $filePath) {
-      array_push($fileNames, getFileNameOfFilePath($filePath));
-    }
-    switch(true) {
-      case $album['title'] == null:
-        Session::put('danger', 'タイトルが入力されていません。');
-        return view("admin/album/edit", compact('fileNames', 'album', 'folderName'));
-      case $album['body'] == null:
-        Session::put('danger', 'コメントが入力されていません。');
-        return view("admin/album/edit", compact('fileNames', 'album', 'folderName'));
-      default :
-        Session::forget('danger');
-        Session::save();
-        $album->save();
-      }
+    $album->save();
     return redirect('admin/albums')->with('success', '更新が完了しました。');
   }
 
