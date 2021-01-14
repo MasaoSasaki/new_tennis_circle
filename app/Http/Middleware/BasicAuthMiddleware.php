@@ -18,8 +18,8 @@ class BasicAuthMiddleware
     {
       switch (true) {
         case !isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']):
-        // case $_SERVER['PHP_AUTH_USER'] !== env('BASIC_AUTH_USER'):
-        case $_SERVER['PHP_AUTH_PW']   !== env('BASIC_AUTH_PW'):
+        // case $_SERVER['PHP_AUTH_USER'] !== config('app.basic_auth_user'):
+        case $_SERVER['PHP_AUTH_PW']   !== config('app.basic_auth_pw'):
           header('WWW-Authenticate: Basic realm="Enter username and password."');
           header('Content-Type: text/plain; charset=utf-8');
           die('このページを見るにはログインが必要です');
