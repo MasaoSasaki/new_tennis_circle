@@ -69,7 +69,17 @@
       @yield('content')
     </main>
 
-    <footer><small>©︎ 2020 MasaoSasaki</small></footer>
+    <footer>
+      <div class="footer-content">
+        <h1><a class="navbar-brand" href="{{ url('/') }}">Tennis Circle</a></h1>
+        <ul class="footer-content__nav">
+          <li><a href="">プライバシーポリシー</a></li>
+          <li><a href="">ご意見・ご要望・不具合</a></li>
+          <li><a href="/admin">管理者用</a></li>
+        </ul>
+      </div>
+      <small>©︎ 2020 MasaoSasaki</small>
+    </footer>
   </div>
 </body>
 </html>
