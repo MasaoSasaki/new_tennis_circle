@@ -230,4 +230,5 @@ return [
 
     ],
 
+    'basic_auth_pw' => env('BASIC_AUTH_PW'),
 ];
