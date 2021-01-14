@@ -10961,156 +10961,160 @@ main .admin-album-create {
   text-align: center;
 }
 
-main .admin-album-create ul {
+main .admin-album-create form .custom-file {
+  margin-bottom: 1rem;
+}
+
+main .admin-album-create form ul {
   text-align: left;
 }
 
-main .admin-album-create #image-preview-list {
+main .admin-album-create form #image-preview-list {
   padding: 0;
   list-style: none;
   position: relative;
   perspective: 300px;
 }
 
-main .admin-album-create #image-preview-list li {
+main .admin-album-create form #image-preview-list li {
   transform: rotateY(60deg);
   transform-origin: left center;
 }
 
-main .admin-album-create #image-preview-list li img {
+main .admin-album-create form #image-preview-list li img {
   width: 60px;
   height: 60px;
   border-radius: 20%;
   border: solid 2px #ddd;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(2) {
+main .admin-album-create form #image-preview-list li:nth-of-type(2) {
   position: absolute;
   top: 0;
   left: 20px;
   z-index: 2;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(3) {
+main .admin-album-create form #image-preview-list li:nth-of-type(3) {
   position: absolute;
   top: 0;
   left: 40px;
   z-index: 3;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(4) {
+main .admin-album-create form #image-preview-list li:nth-of-type(4) {
   position: absolute;
   top: 0;
   left: 60px;
   z-index: 4;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(5) {
+main .admin-album-create form #image-preview-list li:nth-of-type(5) {
   position: absolute;
   top: 0;
   left: 80px;
   z-index: 5;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(6) {
+main .admin-album-create form #image-preview-list li:nth-of-type(6) {
   position: absolute;
   top: 0;
   left: 100px;
   z-index: 6;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(7) {
+main .admin-album-create form #image-preview-list li:nth-of-type(7) {
   position: absolute;
   top: 0;
   left: 120px;
   z-index: 7;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(8) {
+main .admin-album-create form #image-preview-list li:nth-of-type(8) {
   position: absolute;
   top: 0;
   left: 140px;
   z-index: 8;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(9) {
+main .admin-album-create form #image-preview-list li:nth-of-type(9) {
   position: absolute;
   top: 0;
   left: 160px;
   z-index: 9;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(10) {
+main .admin-album-create form #image-preview-list li:nth-of-type(10) {
   position: absolute;
   top: 0;
   left: 180px;
   z-index: 10;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(11) {
+main .admin-album-create form #image-preview-list li:nth-of-type(11) {
   position: absolute;
   top: 0;
   left: 200px;
   z-index: 11;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(12) {
+main .admin-album-create form #image-preview-list li:nth-of-type(12) {
   position: absolute;
   top: 0;
   left: 220px;
   z-index: 12;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(13) {
+main .admin-album-create form #image-preview-list li:nth-of-type(13) {
   position: absolute;
   top: 0;
   left: 240px;
   z-index: 13;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(14) {
+main .admin-album-create form #image-preview-list li:nth-of-type(14) {
   position: absolute;
   top: 0;
   left: 260px;
   z-index: 14;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(15) {
+main .admin-album-create form #image-preview-list li:nth-of-type(15) {
   position: absolute;
   top: 0;
   left: 280px;
   z-index: 15;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(16) {
+main .admin-album-create form #image-preview-list li:nth-of-type(16) {
   position: absolute;
   top: 0;
   left: 300px;
   z-index: 16;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(17) {
+main .admin-album-create form #image-preview-list li:nth-of-type(17) {
   position: absolute;
   top: 0;
   left: 320px;
   z-index: 17;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(18) {
+main .admin-album-create form #image-preview-list li:nth-of-type(18) {
   position: absolute;
   top: 0;
   left: 340px;
   z-index: 18;
 }
 
-main .admin-album-create #image-preview-list li:nth-of-type(19) {
+main .admin-album-create form #image-preview-list li:nth-of-type(19) {
   position: absolute;
   top: 0;
   left: 360px;
   z-index: 19;
 }
 
-main .admin-album-create #image-preview-list li:nth-last-of-type(1) {
+main .admin-album-create form #image-preview-list li:nth-last-of-type(1) {
   width: 60px;
   height: 60px;
   background: rgba(255, 255, 255, 0.9);
@@ -11122,7 +11126,7 @@ main .admin-album-create #image-preview-list li:nth-last-of-type(1) {
   perspective: none;
 }
 
-main .admin-album-create #image-preview-list li:nth-last-of-type(1) span {
+main .admin-album-create form #image-preview-list li:nth-last-of-type(1) span {
   line-height: 60px;
   font-family: "Roboto";
   font-weight: bold;
@@ -11130,8 +11134,30 @@ main .admin-album-create #image-preview-list li:nth-last-of-type(1) span {
   color: #97D3E5;
 }
 
+main .admin-album-create form p {
+  margin: 20px 0 0 0;
+  text-align: left;
+}
+
+main .admin-album-create form .custom-control {
+  text-align: left;
+}
+
 main .admin-album-edit {
   text-align: center;
+}
+
+main .admin-album-edit form p {
+  margin: 20px 0 0 0;
+  text-align: left;
+}
+
+main .admin-album-edit form .custom-control {
+  text-align: left;
+}
+
+main .admin-album-edit .create-images .custom-file {
+  margin-bottom: 1rem;
 }
 
 main .admin-album-edit .create-images ul {

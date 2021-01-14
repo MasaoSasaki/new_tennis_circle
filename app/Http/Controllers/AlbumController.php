@@ -11,7 +11,7 @@ class AlbumController extends Controller
 {
   public function index()
   {
-    $albums = Album::all();
+    $albums = Album::where('isPublished', true)->get();
     forEach($albums as $album) {
       $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
       $album['images'] = Storage::disk('s3')->files($albumFolder);
