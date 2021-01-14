@@ -27,6 +27,7 @@ class AlbumController extends Controller
     $album = new Album;
     $album['title'] = $request['title'];
     $album['body'] = $request['body'];
+    $album['isPublished'] = isset($request['isPublished']) ? true : false;
     $album->save();
     if($request->file('files')) {
       $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
@@ -54,6 +55,7 @@ class AlbumController extends Controller
     $album = Album::findOrFail($id);
     $album['title'] = $request['title'];
     $album['body'] = $request['body'];
+    $album['isPublished'] = isset($request['isPublished']) ? true : false;
     $album->save();
     return redirect('admin/albums')->with('success', '更新が完了しました。');
   }

@@ -14,17 +14,17 @@
             </div>
             <div class="form-group">
               <label for="body">コメント</label>
-              <textarea class="form-control" type="text" name="body" required>{!! $album->body !!}</textarea>
+              <textarea class="form-control" name="body" required>{!! $album->body !!}</textarea>
             </div>
             <p>公開/非公開</p>
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="isPublishedSwitch" name="isPublished" onChange="togglePublished(this);" {{ $album->isPublished ? 'checked' : '' }}>
-              <label id="isPublished--label" class="custom-control-label" for="isPublishedSwitch">非公開</label>
+              <label id="isPublished--label" class="custom-control-label" for="isPublishedSwitch">{{ $album->isPublished ? '公開' : '非公開' }}</label>
             </div>
             <p>グループ公開/全体公開</p>
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="isGroupedSwitch" name="isGrouped" onChange="toggleGrouped(this);" {{ $album->isGrouped ? 'checked' : '' }} {{ $album->isPublished ? '' : 'disabled' }}>
-              <label id="isGrouped--label" class="custom-control-label" for="isGroupedSwitch">グループ公開</label>
+              <label id="isGrouped--label" class="custom-control-label" for="isGroupedSwitch">{{ $album->isGrouped ? 'グループ公開' : '全体公開' }}</label>
             </div>
             <button class="btn btn-primary" type="submit">更新</button>
           </form>
