@@ -73,3 +73,24 @@ previewImages = (obj) => {
   };
   imagePreviewList.insertAdjacentHTML('beforeend', `<li><span>+${ files.length }</span></li>`);
 }
+
+// Checkbox toggle action
+togglePublished = (status) => {
+  const isPublishedLabel = document.getElementById('isPublished--label');
+  const isGroupedInput = document.getElementById('isGroupedSwitch');
+  if (status.checked) {
+    isPublishedLabel.innerText =  "公開";
+    isGroupedInput.removeAttribute('disabled');
+  } else {
+    isPublishedLabel.innerText =  "非公開";
+    isGroupedInput.setAttribute('disabled', 'disabled');
+  }
+}
+toggleGrouped = (status) => {
+  const isGroupedLabel = document.getElementById('isGrouped--label');
+  if (status.checked) {
+    isGroupedLabel.innerText = "グループ公開";
+  } else {
+    isGroupedLabel.innerText = "全体公開";
+  }
+}

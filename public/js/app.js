@@ -49852,6 +49852,30 @@ previewImages = function previewImages(obj) {
 
   ;
   imagePreviewList.insertAdjacentHTML('beforeend', "<li><span>+".concat(files.length, "</span></li>"));
+}; // Checkbox toggle action
+
+
+togglePublished = function togglePublished(status) {
+  var isPublishedLabel = document.getElementById('isPublished--label');
+  var isGroupedInput = document.getElementById('isGroupedSwitch');
+
+  if (status.checked) {
+    isPublishedLabel.innerText = "公開";
+    isGroupedInput.removeAttribute('disabled');
+  } else {
+    isPublishedLabel.innerText = "非公開";
+    isGroupedInput.setAttribute('disabled', 'disabled');
+  }
+};
+
+toggleGrouped = function toggleGrouped(status) {
+  var isGroupedLabel = document.getElementById('isGrouped--label');
+
+  if (status.checked) {
+    isGroupedLabel.innerText = "グループ公開";
+  } else {
+    isGroupedLabel.innerText = "全体公開";
+  }
 };
 
 /***/ }),

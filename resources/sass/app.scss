@@ -59,63 +59,85 @@ main {
     &-album-create {
       text-align: center;
 
-      .custom-file {
-        margin-bottom: 1rem;
-      }
+      form {
 
-      ul {
-        text-align: left;
-      }
+        .custom-file {
+          margin-bottom: 1rem;
+        }
 
-      #image-preview-list {
-        padding: 0;
-        list-style: none;
-        position: relative;
-        perspective: 300px;
+        ul {
+          text-align: left;
+        }
 
-        li {
-          transform: rotateY(60deg);
-          transform-origin: left center;
+        #image-preview-list {
+          padding: 0;
+          list-style: none;
+          position: relative;
+          perspective: 300px;
 
-          img {
-            width: 60px;
-            height: 60px;
-            border-radius: 20%;
-            border: solid 2px #ddd;
-          }
+          li {
+            transform: rotateY(60deg);
+            transform-origin: left center;
 
-          @for $i from 2 to 20 {
-            &:nth-of-type(#{$i}) {
-              position: absolute;
-              top: 0;
-              left: 20px * ($i - 1);
-              z-index: $i;
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 20%;
+              border: solid 2px #ddd;
+            }
+
+            @for $i from 2 to 20 {
+              &:nth-of-type(#{$i}) {
+                position: absolute;
+                top: 0;
+                left: 20px * ($i - 1);
+                z-index: $i;
+              }
+            }
+            &:nth-last-of-type(1) {
+              width: 60px;
+              height: 60px;
+              background: rgba(255, 255, 255, 0.9);
+              border-radius: 20%;
+              border: solid 2px #ddd;
+              text-align: center;
+              transform: none;
+              transform-origin: none;
+              perspective: none;
+
+              span {
+                line-height: 60px;
+                font-family: 'Roboto';
+                font-weight: bold;
+                font-size: large;
+                color: #97D3E5;
+              }
             }
           }
-          &:nth-last-of-type(1) {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20%;
-            border: solid 2px #ddd;
-            text-align: center;
-            transform: none;
-            transform-origin: none;
-            perspective: none;
+        }
 
-            span {
-              line-height: 60px;
-              font-family: 'Roboto';
-              font-weight: bold;
-              font-size: large;
-              color: #97D3E5;
-            }
-          }
+        p {
+          margin: 20px 0 0 0;
+          text-align: left;
+        }
+        .custom-control {
+          text-align: left;
         }
       }
     }
     &-album-edit {
       text-align: center;
+
+      form {
+
+        p {
+          margin: 20px 0 0 0;
+          text-align: left;
+        }
+        .custom-control {
+          text-align: left;
+        }
+      }
 
       .create-images {
 
