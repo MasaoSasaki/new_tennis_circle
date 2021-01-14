@@ -62,7 +62,7 @@ main {
       ul {
         text-align: left;
       }
-      
+
       #image-preview-list {
         padding: 0;
         list-style: none;
@@ -266,8 +266,33 @@ main {
 
 footer {
   padding: 0.5rem 1rem;
-  line-height: 60px;
-  text-align: center;
   background-color: #fff;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  text-align: center;
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+
+
+    h1 {
+      flex: 1;
+      justify-content: center;
+
+      a {
+        color: rgba(0, 0, 0, 0.9);
+      }
+    }
+
+    ul {
+      text-align: left;
+      flex: 1;
+      list-style: none;
+      padding: 0;
+
+      li {
+        color: #3490dc;
+      }
+    }
+  }
 }
