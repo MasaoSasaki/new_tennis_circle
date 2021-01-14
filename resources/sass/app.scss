@@ -59,6 +59,10 @@ main {
     &-album-create {
       text-align: center;
 
+      .custom-file {
+        margin-bottom: 1rem;
+      }
+
       ul {
         text-align: left;
       }
@@ -114,6 +118,10 @@ main {
       text-align: center;
 
       .create-images {
+
+        .custom-file {
+          margin-bottom: 1rem;
+        }
 
         ul {
           text-align: left;

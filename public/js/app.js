@@ -49827,6 +49827,7 @@ previewImages = function previewImages(obj) {
   fileList.innerHTML = "";
   imagePreviewList.innerHTML = "";
   var files = obj.files;
+  document.getElementsByClassName('custom-file-label')[0].innerText = "".concat(files.length, " selected");
 
   if (files.length === 0) {
     return;

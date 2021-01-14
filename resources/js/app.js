@@ -58,6 +58,7 @@ previewImages = (obj) => {
   fileList.innerHTML = "";
   imagePreviewList.innerHTML = "";
   const files = obj.files;
+  document.getElementsByClassName('custom-file-label')[0].innerText = `${files.length} selected`
   if (files.length === 0) { return }
   for (let i = 0; i < files.length; i++) {
     let fileReader = new FileReader();

@@ -15,12 +15,21 @@
               <label for="body">コメント</label>
               <textarea class="form-control" name="body" required>{{ isset($album) ? $album['body'] : '' }}</textarea>
             </div>
-            <div class="form-group">
-              <label for="image">イベント画像</label>
-              <input id="file-form" class="form-control-file" type="file" name="files[]" multiple onChange="previewImages(this);" accept="image/x-png, image/jpeg, image/jpg">
+            <label for="customFile">イベント画像</label>
+            <div class="custom-file">
+              <label class="custom-file-label" for="customFile">Choose files</label>
+              <input class="custom-file-input" id="customFile" type="file" name="files[]" multiple onChange="previewImages(this);" accept="image/x-png, image/jpeg, image/jpg">
             </div>
             <ul id="image-preview-list"></ul>
             <ul id="file-list"></ul>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">非公開です。</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch2">
+              <label class="custom-control-label" for="customSwitch2">グループ化されています。</label>
+            </div>
             <button id="add-new-album-btn" class="btn btn-primary" type="submit">保存</button>
           </form>
           <hr size="10" color="#ccc">

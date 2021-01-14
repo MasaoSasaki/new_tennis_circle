@@ -10961,6 +10961,10 @@ main .admin-album-create {
   text-align: center;
 }
 
+main .admin-album-create .custom-file {
+  margin-bottom: 1rem;
+}
+
 main .admin-album-create ul {
   text-align: left;
 }
@@ -11132,6 +11136,10 @@ main .admin-album-create #image-preview-list li:nth-last-of-type(1) span {
 
 main .admin-album-edit {
   text-align: center;
+}
+
+main .admin-album-edit .create-images .custom-file {
+  margin-bottom: 1rem;
 }
 
 main .admin-album-edit .create-images ul {

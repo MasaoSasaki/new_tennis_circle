@@ -22,9 +22,10 @@
           <div class="create-images">
             <form action="/admin/images/create" method="post" enctype="multipart/form-data">
             @csrf
-              <div class="form-group">
-                <label for="image">イベント画像</label>
-                <input id="file-form" class="form-control-file" type="file" name="files[]" multiple onChange="previewImages(this);" accept="image/x-png, image/jpeg, image/jpg">
+              <label for="customFile">イベント画像</label>
+              <div class="custom-file">
+                <label class="custom-file-label" for="customFile">Choose files</label>
+                <input class="custom-file-input" id="customFile" type="file" name="files[]" multiple onChange="previewImages(this);" accept="image/x-png, image/jpeg, image/jpg">
               </div>
               <ul id="image-preview-list"></ul>
               <ul id="file-list"></ul>
