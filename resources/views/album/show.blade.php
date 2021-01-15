@@ -22,10 +22,10 @@
               <i class="fas fa-times fa-3x" onClick="hideModal();"></i>
               <img src="" alt="" class="modal-image">
             </div>
-            <div class="arrows">
+            <!-- <div class="arrows">
               <i class="fas fa-arrow-circle-left fa-3x fa-inverse"></i>
               <i class="fas fa-arrow-circle-right fa-3x fa-inverse"></i>
-            </div>
+            </div> -->
           </div>
           <div class="albums-link"><a href="/albums">アルバム一覧へもどる</a></div>
         </div>

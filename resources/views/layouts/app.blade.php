@@ -16,7 +16,7 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-          <a class="navbar-brand" href="{{ url('/') }}"><h1>Tennis Circle</h1></a>
+          <a class="navbar-brand" href="{{ url('/albums') }}"><h1>Tennis Circle</h1></a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -71,7 +71,7 @@
 
     <footer>
       <div class="footer-content">
-        <h1><a class="navbar-brand" href="{{ url('/') }}">Tennis Circle</a></h1>
+        <h1><a class="navbar-brand" href="{{ url('/albums') }}">Tennis Circle</a></h1>
         <ul class="footer-content__nav">
           <li><a href="">プライバシーポリシー</a></li>
           <li><a href="">不具合について</a></li>

@@ -11357,6 +11357,10 @@ main .admin-image-index .images img {
   width: 30%;
 }
 
+main .welcome p {
+  margin: 1rem auto;
+}
+
 main .album-index .card {
   margin-bottom: 20px;
 }
@@ -11630,6 +11634,19 @@ main .album-show .card-body .modal-window.hide {
 
 main .album-show .card-body .albums-link {
   margin: 20px 0;
+  text-align: center;
+}
+
+main .register .name-form .col {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+main .register .register-btn {
+  text-align: center;
+}
+
+main .login .login-btn {
   text-align: center;
 }
 

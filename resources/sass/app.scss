@@ -232,6 +232,12 @@ main {
     }
   }
 
+  .welcome {
+
+    p {
+      margin: 1rem auto;
+    }
+  }
   .album {
 
     &-index {
@@ -415,6 +421,27 @@ main {
           text-align: center;
         }
       }
+    }
+  }
+
+  .register {
+
+    .name-form {
+
+      .col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .register-btn {
+      text-align: center;
+    }
+  }
+
+  .login {
+
+    .login-btn {
+      text-align: center;
     }
   }
 }
