@@ -14,7 +14,7 @@ class User extends Authenticatable
 
   public function albums()
   {
-    return $this->hasMany('App\Models\Album');
+    return $this->belongsToMany('App\Models\Album');
   }
 
   /**
