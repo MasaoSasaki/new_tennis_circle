@@ -94,3 +94,20 @@ toggleGrouped = (status) => {
     isGroupedLabel.innerText = "全体公開";
   }
 }
+
+// モーダルウィンドウ
+showModal = (img) => {
+  const modalWindow = document.getElementsByClassName('modal-window')[0];
+  modalWindow.classList.remove('hide');
+  modalWindow.classList.add('show');
+  const modalImage = document.getElementsByClassName('modal-image')[0];
+  const imageUrl = img.getAttribute('src');
+  modalImage.setAttribute('src', imageUrl)
+}
+hideModal = () => {
+  const modalWindow = document.getElementsByClassName('modal-window')[0];
+  modalWindow.classList.remove('show');
+  modalWindow.classList.add('hide');
+  const modalImage = document.getElementsByClassName('modal-image')[0];
+  modalImage.setAttribute('src', '')
+}
