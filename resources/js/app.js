@@ -111,3 +111,26 @@ hideModal = () => {
   const modalImage = document.getElementsByClassName('modal-image')[0];
   modalImage.setAttribute('src', '')
 }
+
+// アルバムに名前を関連づける
+addNames = (obj) => {
+  if(obj) { return }
+  const userNames = JSON.parse(document.getElementById('js-getNames').dataset.names);
+  const inputField = document.getElementById('name');
+  const errorMessage = document.getElementsByClassName('error-message')[0];
+  errorMessage.innerText = "";
+  if (!userNames.includes(inputField.value)) {
+    errorMessage.innerText = "名前が見つかりませんでした。";
+    return;
+  } else {
+    document.getElementsByClassName('edit-member')[0].insertAdjacentHTML(
+      'beforeend',
+      `<span class="name">${inputField.value} <span class="delete-name" onClick="removeName(this);">X</span><input type="hidden" name="names[]" value="${inputField.value}"></span>`
+    )
+    inputField.value = "";
+  }
+}
+
+removeName = (obj) => {
+  obj.parentElement.remove();
+}

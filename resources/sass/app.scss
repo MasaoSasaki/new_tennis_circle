@@ -4,6 +4,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// common
 h1 {
   font-size: 1.2rem;
   font-family: cursive;
@@ -18,6 +19,39 @@ header {
   text-align: center;
 }
 
+.edit-member {
+  text-align: left;
+
+  label {
+    margin-top: 1rem;
+    margin-bottom: 0.1rem;
+  }
+  #name {
+    width: 75%;
+    display: inline-block;
+  }
+  a {
+    margin-left: 5px;
+    display: inline-block;
+  }
+  .name {
+    display: inline-block;
+    margin: 5px;
+    padding: 3px 5px 0 5px;
+    background: rgba(211, 211, 211, 0.3);
+    border-radius: 5px;
+
+    .delete-name:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.error-message {
+  color: red;
+}
+
+// unique
 main {
   font-family: 'Nunito';
 

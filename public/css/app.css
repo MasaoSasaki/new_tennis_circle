@@ -10918,6 +10918,41 @@ header {
   text-align: center;
 }
 
+.edit-member {
+  text-align: left;
+}
+
+.edit-member label {
+  margin-top: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.edit-member #name {
+  width: 75%;
+  display: inline-block;
+}
+
+.edit-member a {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.edit-member .name {
+  display: inline-block;
+  margin: 5px;
+  padding: 3px 5px 0 5px;
+  background: rgba(211, 211, 211, 0.3);
+  border-radius: 5px;
+}
+
+.edit-member .name .delete-name:hover {
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+}
+
 main {
   font-family: "Nunito";
 }
