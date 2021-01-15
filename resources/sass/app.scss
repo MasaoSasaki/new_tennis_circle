@@ -350,10 +350,66 @@ main {
                 position: absolute;
                 top: 0;
                 left: 0;
+                &:hover {
+                  cursor: pointer;
+                }
               }
             }
           }
         }
+
+        .modal-window {
+
+          &.show {
+            opacity: 1;
+            height: 100vh;
+            padding: 20px;
+            background:rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            translate: 1s;
+
+            i {
+              color: lightgray;
+            }
+
+            .modal-content {
+              padding: 10px;
+              background: white;
+              border: 1px solid rgba(0, 0, 0, 0.125);
+              border-radius: 0.25rem;
+              pointer-events: unset;
+
+              i {
+                margin-right: 10px;
+                margin-bottom: 15px;
+                text-align: right;
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+              .modal-image {
+                width: 100%;
+              }
+            }
+            .arrows {
+              margin-top: 15px;
+              display: flex;
+              justify-content: space-between;
+
+              i {
+                margin-top: 30px;
+                color: gray;
+              }
+            }
+          }
+          &.hide {
+            display: none;
+            opacity: 0;
+          }
+        }
+
         .albums-link {
           margin: 20px 0;
           text-align: center;

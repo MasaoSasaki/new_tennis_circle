@@ -49876,6 +49876,24 @@ toggleGrouped = function toggleGrouped(status) {
   } else {
     isGroupedLabel.innerText = "全体公開";
   }
+}; // モーダルウィンドウ
+
+
+showModal = function showModal(img) {
+  var modalWindow = document.getElementsByClassName('modal-window')[0];
+  modalWindow.classList.remove('hide');
+  modalWindow.classList.add('show');
+  var modalImage = document.getElementsByClassName('modal-image')[0];
+  var imageUrl = img.getAttribute('src');
+  modalImage.setAttribute('src', imageUrl);
+};
+
+hideModal = function hideModal() {
+  var modalWindow = document.getElementsByClassName('modal-window')[0];
+  modalWindow.classList.remove('show');
+  modalWindow.classList.add('hide');
+  var modalImage = document.getElementsByClassName('modal-image')[0];
+  modalImage.setAttribute('src', '');
 };
 
 /***/ }),

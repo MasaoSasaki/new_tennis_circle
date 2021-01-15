@@ -11571,6 +11571,63 @@ main .album-show .card-body .images ul li img {
   left: 0;
 }
 
+main .album-show .card-body .images ul li img:hover {
+  cursor: pointer;
+}
+
+main .album-show .card-body .modal-window.show {
+  opacity: 1;
+  height: 100vh;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  translate: 1s;
+}
+
+main .album-show .card-body .modal-window.show i {
+  color: lightgray;
+}
+
+main .album-show .card-body .modal-window.show .modal-content {
+  padding: 10px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  pointer-events: unset;
+}
+
+main .album-show .card-body .modal-window.show .modal-content i {
+  margin-right: 10px;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+main .album-show .card-body .modal-window.show .modal-content i:hover {
+  cursor: pointer;
+}
+
+main .album-show .card-body .modal-window.show .modal-content .modal-image {
+  width: 100%;
+}
+
+main .album-show .card-body .modal-window.show .arrows {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+main .album-show .card-body .modal-window.show .arrows i {
+  margin-top: 30px;
+  color: gray;
+}
+
+main .album-show .card-body .modal-window.hide {
+  display: none;
+  opacity: 0;
+}
+
 main .album-show .card-body .albums-link {
   margin: 20px 0;
   text-align: center;
