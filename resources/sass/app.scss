@@ -411,49 +411,71 @@ main {
         }
 
         .modal-window {
+          height: 100vh;
+          padding: 20px;
+          background:rgba(0, 0, 0, 0.7);
+          position: fixed;
+          top: 0;
+          left: 0;
 
+          @keyframes show{
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+          @keyframes hide{
+            from {
+              opacity: 1;
+            }
+            to {
+              opacity: 0;
+            }
+          }
+          // 基本非表示
+          display: none;
+          animation: hide 0.1s linear 0s;
+          animation-fill-mode: forwards;
+
+          // 表示
           &.show {
-            opacity: 1;
-            height: 100vh;
-            padding: 20px;
-            background:rgba(0, 0, 0, 0.7);
-            position: fixed;
-            top: 0;
-            left: 0;
-            translate: 1s;
+            display: block;
+            animation: show 0.1s linear 0s;
+            animation-fill-mode: forwards;
+          }
+          i {
+            color: lightgray;
+          }
+
+          .modal-content {
+            padding: 10px;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem;
+            pointer-events: unset;
 
             i {
-              color: lightgray;
-            }
-
-            .modal-content {
-              padding: 10px;
-              background: white;
-              border: 1px solid rgba(0, 0, 0, 0.125);
-              border-radius: 0.25rem;
-              pointer-events: unset;
-
-              i {
-                margin-right: 10px;
-                margin-bottom: 15px;
-                text-align: right;
-                &:hover {
-                  cursor: pointer;
-                }
-              }
-              .modal-image {
-                width: 100%;
+              margin-right: 10px;
+              margin-bottom: 15px;
+              text-align: right;
+              &:hover {
+                cursor: pointer;
               }
             }
-            .arrows {
-              margin-top: 15px;
-              display: flex;
-              justify-content: space-between;
+            .modal-image {
+              width: 100%;
+            }
+          }
+          .arrows {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
 
-              i {
-                margin-top: 30px;
-                color: gray;
-              }
+            i {
+              margin-top: 30px;
+              color: gray;
             }
           }
           &.hide {

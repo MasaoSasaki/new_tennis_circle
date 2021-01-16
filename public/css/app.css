@@ -11623,22 +11623,73 @@ main .album-show .card-body .images ul li img:hover {
   cursor: pointer;
 }
 
-main .album-show .card-body .modal-window.show {
-  opacity: 1;
+main .album-show .card-body .modal-window {
   height: 100vh;
   padding: 20px;
+  display: none;
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
   left: 0;
-  translate: 1s;
+  -webkit-animation: hide 0.1s linear 0s;
+          animation: hide 0.1s linear 0s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
-main .album-show .card-body .modal-window.show i {
+@-webkit-keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+main .album-show .card-body .modal-window.show {
+  display: block;
+  -webkit-animation: show 0.1s linear 0s;
+          animation: show 0.1s linear 0s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+main .album-show .card-body .modal-window i {
   color: lightgray;
 }
 
-main .album-show .card-body .modal-window.show .modal-content {
+main .album-show .card-body .modal-window .modal-content {
   padding: 10px;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -11646,27 +11697,27 @@ main .album-show .card-body .modal-window.show .modal-content {
   pointer-events: unset;
 }
 
-main .album-show .card-body .modal-window.show .modal-content i {
+main .album-show .card-body .modal-window .modal-content i {
   margin-right: 10px;
   margin-bottom: 15px;
   text-align: right;
 }
 
-main .album-show .card-body .modal-window.show .modal-content i:hover {
+main .album-show .card-body .modal-window .modal-content i:hover {
   cursor: pointer;
 }
 
-main .album-show .card-body .modal-window.show .modal-content .modal-image {
+main .album-show .card-body .modal-window .modal-content .modal-image {
   width: 100%;
 }
 
-main .album-show .card-body .modal-window.show .arrows {
+main .album-show .card-body .modal-window .arrows {
   margin-top: 15px;
   display: flex;
   justify-content: space-between;
 }
 
-main .album-show .card-body .modal-window.show .arrows i {
+main .album-show .card-body .modal-window .arrows i {
   margin-top: 30px;
   color: gray;
 }
