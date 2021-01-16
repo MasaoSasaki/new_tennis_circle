@@ -17,7 +17,7 @@
               @endforeach
             </ul>
           </div>
-          <div class="modal-window hide" onClick="hideModal();">
+          <div class="modal-window" onClick="hideModal();">
             <div class="modal-content">
               <i class="fas fa-times fa-3x" onClick="hideModal();"></i>
               <img src="" alt="" class="modal-image">

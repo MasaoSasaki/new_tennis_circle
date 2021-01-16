@@ -22,16 +22,7 @@
             </div>
             <ul id="image-preview-list"></ul>
             <ul id="file-list"></ul>
-            <p>公開/非公開</p>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="isPublishedSwitch" name="isPublished" onChange="togglePublished(this);">
-              <label id="isPublished--label" class="custom-control-label" for="isPublishedSwitch">非公開</label>
-            </div>
-            <p>グループ公開/全体公開</p>
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="isGroupedSwitch" name="isGrouped" onChange="toggleGrouped(this);" checked disabled>
-              <label id="isGrouped--label" class="custom-control-label" for="isGroupedSwitch">グループ公開</label>
-            </div>
+            @include('admin.album.published')
             <button id="add-new-album-btn" class="btn btn-primary" type="submit">保存</button>
           </form>
           <hr size="10" color="#ccc">
