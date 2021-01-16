@@ -11,10 +11,14 @@
     {{ $album->isGrouped ? 'グループ公開' : '全体公開' }}
     @if(request()->is('*/create'))
       <span class="warning-message">（現在"非公開"になっています。）<span>
+    @else
+      @if(!$album->isPublished)
+        <span class="warning-message">（現在"非公開"になっています。）<span>
+      @endif
     @endif
   </label>
 </div>
-<div class="form-group create-member-field hide">
+<div class="form-group create-member-field">
   <label for="name">公開するユーザーを入力</label>
   <input id="name" class="form-control" type="text" list="names" onBlur="addNames();">
   <a class="btn btn-light" onClick="addNames(this);">追加</a>
