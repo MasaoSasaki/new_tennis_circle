@@ -19,8 +19,20 @@ header {
   text-align: center;
 }
 
-.edit-member {
+.create-member-field {
   text-align: left;
+
+  // 基本表示
+  max-height: 100vh;
+  opacity: 1;
+  transition: 1s;
+
+  // .hide付与で非表示
+  &.hide {
+    max-height: 0;
+    opacity: 0;
+    transition: 1s;
+  }
 
   label {
     margin-top: 1rem;

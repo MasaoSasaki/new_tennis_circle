@@ -10918,26 +10918,35 @@ header {
   text-align: center;
 }
 
-.edit-member {
+.create-member-field {
   text-align: left;
+  max-height: 100vh;
+  opacity: 1;
+  transition: 1s;
 }
 
-.edit-member label {
+.create-member-field.hide {
+  max-height: 0;
+  opacity: 0;
+  transition: 1s;
+}
+
+.create-member-field label {
   margin-top: 1rem;
   margin-bottom: 0.1rem;
 }
 
-.edit-member #name {
+.create-member-field #name {
   width: 75%;
   display: inline-block;
 }
 
-.edit-member a {
+.create-member-field a {
   margin-left: 5px;
   display: inline-block;
 }
 
-.edit-member .name {
+.create-member-field .name {
   display: inline-block;
   margin: 5px;
   padding: 3px 5px 0 5px;
@@ -10945,7 +10954,7 @@ header {
   border-radius: 5px;
 }
 
-.edit-member .name .delete-name:hover {
+.create-member-field .name .delete-name:hover {
   cursor: pointer;
 }
 

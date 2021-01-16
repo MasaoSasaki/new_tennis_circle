@@ -78,20 +78,27 @@ previewImages = (obj) => {
 togglePublished = (status) => {
   const isPublishedLabel = document.getElementById('isPublished--label');
   const isGroupedInput = document.getElementById('isGroupedSwitch');
+  const isGroupedLabel = document.getElementById('isGrouped--label');
+  const isPublishedWarn = document.getElementsByClassName('warning-message')[0];
   if (status.checked) {
     isPublishedLabel.innerText =  "公開";
     isGroupedInput.removeAttribute('disabled');
+    isPublishedWarn.remove();
   } else {
     isPublishedLabel.innerText =  "非公開";
     isGroupedInput.setAttribute('disabled', 'disabled');
+    isGroupedLabel.insertAdjacentHTML('beforeend', '<span class="warning-message">（現在"非公開"になっています。）<span>');
   }
 }
 toggleGrouped = (status) => {
   const isGroupedLabel = document.getElementById('isGrouped--label');
+  const createMemberField = document.getElementsByClassName('create-member-field')[0];
   if (status.checked) {
     isGroupedLabel.innerText = "グループ公開";
+    createMemberField.classList.remove('hide');
   } else {
     isGroupedLabel.innerText = "全体公開";
+    createMemberField.classList.add('hide');
   }
 }
 
@@ -112,7 +119,7 @@ hideModal = () => {
   modalImage.setAttribute('src', '')
 }
 
-// アルバムに名前を関連づける
+// アルバムにユーザー名を関連づける
 addNames = (obj) => {
   if(obj) { return }
   const userNames = JSON.parse(document.getElementById('js-getNames').dataset.names);
@@ -123,7 +130,7 @@ addNames = (obj) => {
     errorMessage.innerText = "名前が見つかりませんでした。";
     return;
   } else {
-    document.getElementsByClassName('edit-member')[0].insertAdjacentHTML(
+    document.getElementsByClassName('create-member-field')[0].insertAdjacentHTML(
       'beforeend',
       `<span class="name">${inputField.value} <span class="delete-name" onClick="removeName(this);">X</span><input type="hidden" name="names[]" value="${inputField.value}"></span>`
     )

@@ -49858,23 +49858,30 @@ previewImages = function previewImages(obj) {
 togglePublished = function togglePublished(status) {
   var isPublishedLabel = document.getElementById('isPublished--label');
   var isGroupedInput = document.getElementById('isGroupedSwitch');
+  var isGroupedLabel = document.getElementById('isGrouped--label');
+  var isPublishedWarn = document.getElementsByClassName('warning-message')[0];
 
   if (status.checked) {
     isPublishedLabel.innerText = "公開";
     isGroupedInput.removeAttribute('disabled');
+    isPublishedWarn.remove();
   } else {
     isPublishedLabel.innerText = "非公開";
     isGroupedInput.setAttribute('disabled', 'disabled');
+    isGroupedLabel.insertAdjacentHTML('beforeend', '<span class="warning-message">（現在"非公開"になっています。）<span>');
   }
 };
 
 toggleGrouped = function toggleGrouped(status) {
   var isGroupedLabel = document.getElementById('isGrouped--label');
+  var createMemberField = document.getElementsByClassName('create-member-field')[0];
 
   if (status.checked) {
     isGroupedLabel.innerText = "グループ公開";
+    createMemberField.classList.remove('hide');
   } else {
     isGroupedLabel.innerText = "全体公開";
+    createMemberField.classList.add('hide');
   }
 }; // モーダルウィンドウ
 
@@ -49894,7 +49901,7 @@ hideModal = function hideModal() {
   modalWindow.classList.add('hide');
   var modalImage = document.getElementsByClassName('modal-image')[0];
   modalImage.setAttribute('src', '');
-}; // アルバムに名前を関連づける
+}; // アルバムにユーザー名を関連づける
 
 
 addNames = function addNames(obj) {
@@ -49911,7 +49918,7 @@ addNames = function addNames(obj) {
     errorMessage.innerText = "名前が見つかりませんでした。";
     return;
   } else {
-    document.getElementsByClassName('edit-member')[0].insertAdjacentHTML('beforeend', "<span class=\"name\">".concat(inputField.value, " <span class=\"delete-name\" onClick=\"removeName(this);\">X</span><input type=\"hidden\" name=\"names[]\" value=\"").concat(inputField.value, "\"></span>"));
+    document.getElementsByClassName('create-member-field')[0].insertAdjacentHTML('beforeend', "<span class=\"name\">".concat(inputField.value, " <span class=\"delete-name\" onClick=\"removeName(this);\">X</span><input type=\"hidden\" name=\"names[]\" value=\"").concat(inputField.value, "\"></span>"));
     inputField.value = "";
   }
 };
