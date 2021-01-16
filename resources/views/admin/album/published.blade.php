@@ -20,7 +20,7 @@
 </div>
 <div class="form-group create-member-field">
   <label for="name">公開するユーザーを入力</label>
-  <input id="name" class="form-control" type="text" list="names" onBlur="addNames();">
+  <input id="name" class="form-control" type="text" list="names" onBlur="addNames();" onFocus="{this.value = ''}">
   <a class="btn btn-light" onClick="addNames(this);">追加</a>
   <datalist id="names">
     @foreach($names as $index => $name)
@@ -31,5 +31,5 @@
       @endif
     @endforeach
   </datalist>
-  <span class="error-message"></span>
+  <span class="error-message"></span><br>
 </div>

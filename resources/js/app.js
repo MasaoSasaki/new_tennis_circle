@@ -125,9 +125,19 @@ addNames = (obj) => {
   const errorMessage = document.getElementsByClassName('error-message')[0];
   errorMessage.innerText = "";
   if (!userNames.includes(inputField.value)) {
+    if (inputField.value == "") { return }
     errorMessage.innerText = "名前が見つかりませんでした。";
     return;
   } else {
+    const nameList = document.getElementsByClassName('name');
+    if (nameList.length >= 1) {
+      for(i = 0; i < nameList.length; i++) {
+        if(`${inputField.value} X` == nameList[i].textContent) {
+          errorMessage.innerText = "すでに選択されています。";
+          return
+        }
+      };
+    }
     document.getElementsByClassName('create-member-field')[0].insertAdjacentHTML(
       'beforeend',
       `<span class="name">${inputField.value} <span class="delete-name" onClick="removeName(this);">X</span><input type="hidden" name="names[]" value="${inputField.value}"></span>`

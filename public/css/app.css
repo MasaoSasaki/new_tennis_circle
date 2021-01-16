@@ -11626,11 +11626,11 @@ main .album-show .card-body .images ul li img:hover {
 main .album-show .card-body .modal-window {
   height: 100vh;
   padding: 20px;
-  display: none;
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
   top: 0;
   left: 0;
+  display: none;
   -webkit-animation: hide 0.1s linear 0s;
           animation: hide 0.1s linear 0s;
   -webkit-animation-fill-mode: forwards;
