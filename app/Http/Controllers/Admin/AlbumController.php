@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Album;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 
 
@@ -19,7 +20,12 @@ class AlbumController extends Controller
 
   public function create()
   {
-    return view('admin/album/create');
+    $album = new Album();
+    $names = array();
+    forEach(User::all() as $user) {
+      array_push($names, $user['last_name'].' '.$user['first_name']);
+    }
+    return view('admin/album/create', compact('album', 'names'));
   }
 
   public function store(Request $request)
@@ -28,7 +34,8 @@ class AlbumController extends Controller
     $album['title'] = $request['title'];
     $album['body'] = $request['body'];
     $album['isPublished'] = isset($request['isPublished']) ? true : false;
-    $album->save();
+    // $album->save();
+    logger($request);
     if($request->file('files')) {
       $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
       forEach($request->file('files') as $image) {
@@ -47,7 +54,11 @@ class AlbumController extends Controller
     forEach($filePaths as $filePath) {
       array_push($fileNames, getFileNameOfFilePath($filePath));
     }
-    return view('admin/album/edit', compact('fileNames', 'album', 'folderName'));
+    $names = array();
+    forEach(User::all() as $user) {
+      array_push($names, $user['last_name'].' '.$user['first_name']);
+    }
+    return view('admin/album/edit', compact('fileNames', 'album', 'folderName', 'names'));
   }
 
   public function update(Request $request, $id)
@@ -56,7 +67,8 @@ class AlbumController extends Controller
     $album['title'] = $request['title'];
     $album['body'] = $request['body'];
     $album['isPublished'] = isset($request['isPublished']) ? true : false;
-    $album->save();
+    // $album->save();
+    logger($request);
     return redirect('admin/albums')->with('success', '更新が完了しました。');
   }
 
