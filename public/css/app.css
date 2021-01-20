@@ -10903,6 +10903,46 @@ a.text-dark:focus {
   }
 }
 
+@-webkit-keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 h1 {
   font-size: 1.2rem;
   font-family: cursive;
@@ -11178,6 +11218,10 @@ main .admin-album-create form #image-preview-list li:nth-last-of-type(1) span {
   color: #97D3E5;
 }
 
+main .admin-album-create form button {
+  position: relative;
+}
+
 main .admin-album-create form p {
   margin: 20px 0 0 0;
   text-align: left;
@@ -11189,6 +11233,10 @@ main .admin-album-create form .custom-control {
 
 main .admin-album-edit {
   text-align: center;
+}
+
+main .admin-album-edit .edit-album button {
+  position: relative;
 }
 
 main .admin-album-edit form p {
@@ -11635,46 +11683,6 @@ main .album-show .card-body .modal-window {
           animation: hide 0.1s linear 0s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes show {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes show {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes hide {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes hide {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
 }
 
 main .album-show .card-body .modal-window.show {

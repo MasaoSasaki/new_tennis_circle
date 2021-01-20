@@ -5,6 +5,23 @@
 @import '~bootstrap/scss/bootstrap';
 
 // common
+
+@keyframes show{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide{
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 h1 {
   font-size: 1.2rem;
   font-family: cursive;
@@ -161,7 +178,10 @@ main {
             }
           }
         }
-
+        button {
+          position: relative;
+        }
+        // published.blade.php
         p {
           margin: 20px 0 0 0;
           text-align: left;
@@ -174,6 +194,12 @@ main {
     &-album-edit {
       text-align: center;
 
+      .edit-album {
+
+        button {
+          position: relative;
+        }
+      }
       form {
 
         p {
@@ -241,6 +267,7 @@ main {
             }
           }
         }
+
       }
 
       .delete-images {
@@ -418,22 +445,6 @@ main {
           top: 0;
           left: 0;
 
-          @keyframes show{
-            from {
-              opacity: 0;
-            }
-            to {
-              opacity: 1;
-            }
-          }
-          @keyframes hide{
-            from {
-              opacity: 1;
-            }
-            to {
-              opacity: 0;
-            }
-          }
           // 基本非表示
           display: none;
           animation: hide 0.1s linear 0s;

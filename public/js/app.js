@@ -49926,8 +49926,6 @@ addNames = function addNames(obj) {
 
     if (nameList.length >= 1) {
       for (i = 0; i < nameList.length; i++) {
-        console.log(nameList[i]);
-
         if ("".concat(inputField.value, " X") == nameList[i].textContent) {
           errorMessage.innerText = "すでに選択されています。";
           return;
