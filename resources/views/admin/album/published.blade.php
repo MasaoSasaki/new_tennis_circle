@@ -6,9 +6,9 @@
 </div>
 <p>グループ公開/全体公開</p>
 <div class="custom-control custom-switch grouped-switch">
-  <input type="checkbox" class="custom-control-input" id="isGroupedSwitch" name="isGrouped" onChange="toggleGrouped(this);" {{ $album->isGrouped ? 'checked' : '' }} {{ $album->isPublished ? '' : 'disabled' }}>
+  <input type="checkbox" class="custom-control-input" id="isGroupedSwitch" name="isGrouped" onChange="toggleGrouped(this);" {{ $album->isGrouped || request()->is('*/create') ? 'checked' : '' }} {{ $album->isPublished ? '' : 'disabled' }}>
   <label id="isGrouped--label" class="custom-control-label" for="isGroupedSwitch">
-    {{ $album->isGrouped ? 'グループ公開' : '全体公開' }}
+    {{ $album->isGrouped || request()->is('*/create') ? 'グループ公開' : '全体公開' }}
     @if(request()->is('*/create'))
       <span class="warning-message">（現在"非公開"になっています。）<span>
     @else
