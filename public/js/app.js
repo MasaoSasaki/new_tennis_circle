@@ -49899,8 +49899,6 @@ showModal = function showModal(img) {
 hideModal = function hideModal() {
   var modalWindow = document.getElementsByClassName('modal-window')[0];
   modalWindow.classList.remove('show');
-  var modalImage = document.getElementsByClassName('modal-image')[0];
-  modalImage.setAttribute('src', '');
 }; // アルバムにユーザー名を関連づける
 
 

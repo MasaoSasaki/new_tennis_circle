@@ -11678,19 +11678,15 @@ main .album-show .card-body .modal-window {
   position: fixed;
   top: 0;
   left: 0;
-  display: none;
-  -webkit-animation: hide 0.1s linear 0s;
-          animation: hide 0.1s linear 0s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: -1;
 }
 
 main .album-show .card-body .modal-window.show {
-  display: block;
-  -webkit-animation: show 0.1s linear 0s;
-          animation: show 0.1s linear 0s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  opacity: 1;
+  transition: opacity 0.5s;
+  z-index: 1;
 }
 
 main .album-show .card-body .modal-window i {

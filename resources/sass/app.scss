@@ -446,15 +446,15 @@ main {
           left: 0;
 
           // 基本非表示
-          display: none;
-          animation: hide 0.1s linear 0s;
-          animation-fill-mode: forwards;
+          opacity: 0;
+          transition: 0.5s;
+          z-index: -1;
 
           // 表示
           &.show {
-            display: block;
-            animation: show 0.1s linear 0s;
-            animation-fill-mode: forwards;
+            opacity: 1;
+            transition: opacity 0.5s;
+            z-index: 1;
           }
           i {
             color: lightgray;
