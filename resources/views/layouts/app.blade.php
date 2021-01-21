@@ -72,11 +72,8 @@
       <div class="footer-content">
         <h1><a class="navbar-brand" href="{{ url('/albums') }}">Tennis Circle</a></h1>
         <ul class="footer-content__nav">
-          <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-          <li><a href="/terms">利用規約</a></li>
-          @if (Auth::check())
-            <li><a href="/feedback">不具合について</a></li>
-          @endif
+          <li><a href="">プライバシーポリシー</a></li>
+          <li><a href="">不具合について</a></li>
           <li><a href="/admin">管理者用</a></li>
         </ul>
       </div>

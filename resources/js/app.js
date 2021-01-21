@@ -33,6 +33,15 @@ const app = new Vue({
   el: '#app',
 });
 
+// 削除確認メッセージ
+deleteAlbumConfirm = () => {
+  if(window.confirm('本当に削除しますか？\nこのアルバムの保存済み写真データも同時に削除されます。')) {
+    return true;
+  } else {
+    alert('キャンセルされました。');
+    return false;
+  }
+};
 deleteConfirm = () => {
   if(window.confirm('本当に削除しますか？')) {
     return true;
@@ -67,13 +76,17 @@ previewImages = (obj) => {
 // Checkbox toggle action
 togglePublished = (status) => {
   const isPublishedLabel = document.getElementById('isPublished--label');
-  const groupedField = document.getElementsByClassName('grouped')[0];
+  const isGroupedInput = document.getElementById('isGroupedSwitch');
+  const isGroupedLabel = document.getElementById('isGrouped--label');
+  const isPublishedWarn = document.getElementsByClassName('warning-message')[0];
   if (status.checked) {
     isPublishedLabel.innerText =  "公開";
-    groupedField.classList.remove('hide');
+    isGroupedInput.removeAttribute('disabled');
+    isPublishedWarn.remove();
   } else {
     isPublishedLabel.innerText =  "非公開";
-    groupedField.classList.add('hide');
+    isGroupedInput.setAttribute('disabled', 'disabled');
+    isGroupedLabel.insertAdjacentHTML('beforeend', '<span class="warning-message">（現在"非公開"になっています。）<span>');
   }
 }
 toggleGrouped = (status) => {

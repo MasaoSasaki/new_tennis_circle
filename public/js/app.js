@@ -49800,7 +49800,16 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
+}); // 削除確認メッセージ
+
+deleteAlbumConfirm = function deleteAlbumConfirm() {
+  if (window.confirm('本当に削除しますか？\nこのアルバムの保存済み写真データも同時に削除されます。')) {
+    return true;
+  } else {
+    alert('キャンセルされました。');
+    return false;
+  }
+};
 
 deleteConfirm = function deleteConfirm() {
   if (window.confirm('本当に削除しますか？')) {
@@ -49849,14 +49858,18 @@ previewImages = function previewImages(obj) {
 
 togglePublished = function togglePublished(status) {
   var isPublishedLabel = document.getElementById('isPublished--label');
-  var groupedField = document.getElementsByClassName('grouped')[0];
+  var isGroupedInput = document.getElementById('isGroupedSwitch');
+  var isGroupedLabel = document.getElementById('isGrouped--label');
+  var isPublishedWarn = document.getElementsByClassName('warning-message')[0];
 
   if (status.checked) {
     isPublishedLabel.innerText = "公開";
-    groupedField.classList.remove('hide');
+    isGroupedInput.removeAttribute('disabled');
+    isPublishedWarn.remove();
   } else {
     isPublishedLabel.innerText = "非公開";
-    groupedField.classList.add('hide');
+    isGroupedInput.setAttribute('disabled', 'disabled');
+    isGroupedLabel.insertAdjacentHTML('beforeend', '<span class="warning-message">（現在"非公開"になっています。）<span>');
   }
 };
 
