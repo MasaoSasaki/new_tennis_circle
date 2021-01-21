@@ -231,4 +231,6 @@ return [
     ],
 
     'basic_auth_pw' => env('BASIC_AUTH_PW'),
+    'contact_line' => env('CONTACT_LINE'),
+    'contact_email' => env('CONTACT_EMAIL'),
 ];
