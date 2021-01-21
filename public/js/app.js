@@ -49802,7 +49802,7 @@ var app = new Vue({
   el: '#app'
 }); // 削除確認メッセージ
 
-deleteConfirm = function deleteConfirm() {
+deleteAlbumConfirm = function deleteAlbumConfirm() {
   if (window.confirm('本当に削除しますか？\nこのアルバムの保存済み写真データも同時に削除されます。')) {
     return true;
   } else {
@@ -49811,11 +49811,10 @@ deleteConfirm = function deleteConfirm() {
   }
 };
 
-deleteImageConfirm = function deleteImageConfirm() {
+deleteConfirm = function deleteConfirm() {
   if (window.confirm('本当に削除しますか？')) {
     return true;
   } else {
-    alert('キャンセルされました。');
     return false;
   }
 }; // アップロード画像プレビュー

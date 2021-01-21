@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card-header">アルバムの編集</div>
         <div class="card-body">
-          <form action="/admin/albums/{{ $album->id }}" method="post" enctype="multipart/form-data">
+          <form action="/admin/albums/{{ $album['id'] }}" method="post" enctype="multipart/form-data" class="edit-album">
             @csrf
             <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
@@ -20,10 +20,28 @@
             <button class="btn btn-primary" type="submit">更新</button>
           </form>
           <hr size="10" color="#ccc">
+          <div class="album-users">
+            <p>現在公開済みのユーザー</p>
+            <ul>
+              @foreach($album['users'] as $user)
+                <li>
+                  <p>{{ $user['last_name'].' '.$user['first_name'] }}</p>
+                  <form action="/admin/album_user" method="post" enctype="multipart/form-data" onSubmit="return confirm('外してよろしいですか？')">
+                    @csrf
+                    {{ method_field('delete') }}
+                    <input type="hidden" name="album" value="{{ $album['id'] }}">
+                    <input type="hidden" name="user" value="{{ $user['id'] }}">
+                    <button type="submit" class="btn btn-danger">外す</button>
+                  </form>
+                </li>
+              @endforeach
+            </ul>
+          </div>
+          <hr size="10" color="#ccc">
           <div class="create-images">
             <form action="/admin/images/create" method="post" enctype="multipart/form-data">
             @csrf
-              <label for="customFile">イベント画像</label>
+              <label for="customFile">写真を追加する</label>
               <div class="custom-file">
                 <label class="custom-file-label" for="customFile">Choose files</label>
                 <input class="custom-file-input" id="customFile" type="file" name="files[]" multiple onChange="previewImages(this);" accept="image/x-png, image/jpeg, image/jpg">
@@ -44,7 +62,7 @@
                 <form action="/admin/images/{{ $album['id'] }}" method="post" enctype="multipart/form-data">
                   @csrf
                   <input type="hidden" name="fileName" value="{{ $fileName }}">
-                  <button type="submit" onClick="return deleteImageConfirm();" class="btn btn-danger">削除</button>
+                  <button type="submit" onClick="return deleteConfirm();" class="btn btn-danger">削除</button>
                 </form>
               </li>
               @endforeach

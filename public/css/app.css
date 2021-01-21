@@ -10949,6 +10949,10 @@ h1 {
   margin-bottom: 0;
 }
 
+ul {
+  list-style: none;
+}
+
 img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -10962,13 +10966,13 @@ header {
   text-align: left;
   max-height: 100vh;
   opacity: 1;
-  transition: 1s;
+  transition: max-height 1s, opacity 1s;
 }
 
 .create-member-field.hide {
   max-height: 0;
   opacity: 0;
-  transition: 1s;
+  transition: max-height 1s, opacity 1s;
 }
 
 .create-member-field label {
@@ -11028,10 +11032,6 @@ main .admin-album-index form button {
   border: unset;
 }
 
-main .admin-album-index ul {
-  list-style: none;
-}
-
 main .admin-album-index ul .title-link,
 main .admin-album-index ul .edit-link {
   color: unset;
@@ -11055,7 +11055,6 @@ main .admin-album-create form ul {
 
 main .admin-album-create form #image-preview-list {
   padding: 0;
-  list-style: none;
   position: relative;
   perspective: 300px;
 }
@@ -11218,6 +11217,10 @@ main .admin-album-create form #image-preview-list li:nth-last-of-type(1) span {
   color: #97D3E5;
 }
 
+main .admin-album-create form #file-list {
+  list-style: unset;
+}
+
 main .admin-album-create form button {
   position: relative;
 }
@@ -11248,17 +11251,28 @@ main .admin-album-edit form .custom-control {
   text-align: left;
 }
 
+main .admin-album-edit .album-users ul {
+  padding: 0 40px;
+}
+
+main .admin-album-edit .album-users ul li {
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 main .admin-album-edit .create-images .custom-file {
   margin-bottom: 1rem;
 }
 
 main .admin-album-edit .create-images ul {
   text-align: left;
+  list-style: unset;
 }
 
 main .admin-album-edit .create-images #image-preview-list {
   padding: 0;
-  list-style: none;
   position: relative;
   perspective: 300px;
 }
@@ -11428,7 +11442,6 @@ main .admin-album-edit .delete-images {
 main .admin-album-edit .delete-images ul {
   padding: 0;
   display: flex;
-  list-style: none;
   flex-wrap: wrap;
 }
 
@@ -11467,7 +11480,6 @@ main .album-index .card .card-body {
 
 main .album-index .card .card-body .images ul {
   padding: 0;
-  list-style: none;
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -11507,7 +11519,6 @@ main .album-show .card-body .comments {
 }
 
 main .album-show .card-body .images ul {
-  list-style: none;
   padding: 0;
   display: grid;
   width: 100%;
@@ -11773,7 +11784,6 @@ footer .footer-content h1 a {
 footer .footer-content ul {
   text-align: left;
   flex: 1;
-  list-style: none;
   padding: 0;
 }
 

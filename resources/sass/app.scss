@@ -27,7 +27,9 @@ h1 {
   font-family: cursive;
   margin-bottom: 0;
 }
-
+ul {
+  list-style: none;
+}
 img {
   object-fit: cover;
 }
@@ -42,13 +44,13 @@ header {
   // 基本表示
   max-height: 100vh;
   opacity: 1;
-  transition: 1s;
+  transition: max-height 1s, opacity 1s;
 
   // .hide付与で非表示
   &.hide {
     max-height: 0;
     opacity: 0;
-    transition: 1s;
+    transition: max-height 1s, opacity 1s;
   }
 
   label {
@@ -108,7 +110,6 @@ main {
       }
 
       ul {
-        list-style: none;
 
         .title-link, .edit-link {
           color: unset;
@@ -134,7 +135,6 @@ main {
 
         #image-preview-list {
           padding: 0;
-          list-style: none;
           position: relative;
           perspective: 300px;
 
@@ -178,6 +178,9 @@ main {
             }
           }
         }
+        #file-list {
+          list-style: unset;
+        }
         button {
           position: relative;
         }
@@ -210,7 +213,20 @@ main {
           text-align: left;
         }
       }
+      .album-users {
 
+        ul {
+          padding: 0 40px;
+
+          li {
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+          }
+
+        }
+      }
       .create-images {
 
         .custom-file {
@@ -219,11 +235,11 @@ main {
 
         ul {
           text-align: left;
+          list-style: unset;
         }
 
         #image-preview-list {
           padding: 0;
-          list-style: none;
           position: relative;
           perspective: 300px;
 
@@ -276,7 +292,6 @@ main {
         ul {
           padding: 0;
           display: flex;
-          list-style: none;
           flex-wrap: wrap;
 
           li {
@@ -329,7 +344,6 @@ main {
 
             ul {
               padding: 0;
-              list-style: none;
               overflow: hidden;
               position: relative;
               z-index: 1;
@@ -375,7 +389,6 @@ main {
         .images {
 
           ul {
-            list-style: none;
             padding: 0;
             display: grid;
             width: 100%;
@@ -548,7 +561,6 @@ footer {
     ul {
       text-align: left;
       flex: 1;
-      list-style: none;
       padding: 0;
 
       li {
