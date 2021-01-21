@@ -1,4 +1,5 @@
 # tennis_circle
+https://tennis_circle.masao-sasaki.com
 テニスサークルコミュニティに限定した写真共有サービス
 
 ## 使用技術
@@ -19,5 +20,3 @@ AWS(EC2 AL2, RDS MySQL8.0.21, Route53, S3, Certificate)
 * ユーザーを指定したアルバムの公開
 * AWS S3にストレージを連携
 * 管理者機能をBASIC認証、ユーザー機能をuser認証で分けて実装
-
-- **[OP.GG](https://op.gg)**
