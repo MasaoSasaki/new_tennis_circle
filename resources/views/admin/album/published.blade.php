@@ -4,7 +4,11 @@
   <input type="checkbox" class="custom-control-input" id="isPublishedSwitch" name="isPublished" onChange="togglePublished(this);" {{ $album->isPublished ? 'checked' : '' }}>
   <label id="isPublished--label" class="custom-control-label" for="isPublishedSwitch">{{ $album->isPublished ? '公開' : '非公開' }}</label>
 </div>
+@if ($album->idPublished)
 <div class="grouped hide">
+@else
+<div class="grouped">
+@endif
   <div class="custom-control custom-switch grouped-switch">
     <p>グループ公開/全体公開</p>
     <input type="checkbox" class="custom-control-input" id="isGroupedSwitch" name="isGrouped" onChange="toggleGrouped(this);" {{ $album->isGrouped || request()->is('*/create') ? 'checked' : '' }}>

@@ -11270,6 +11270,10 @@ main .admin-album-edit .album-users ul li {
   align-items: baseline;
 }
 
+main .admin-album-edit .album-users ul li button {
+  position: relative;
+}
+
 main .admin-album-edit .create-images .custom-file {
   margin-bottom: 1rem;
 }
