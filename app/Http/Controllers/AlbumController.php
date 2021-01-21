@@ -6,12 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Album;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class AlbumController extends Controller
 {
   public function index()
   {
-    $albums = Album::where('isPublished', true)->get();
+    $privateAlbums = User::find(Auth::id())->albums()->where('isPublished', true)->get();
+    $publicAlbums = Album::where('isPublished', true)->where('isGrouped', false)->get();
+    $albums = collect($publicAlbums->merge($privateAlbums))->sortByDesc('created_at');
     forEach($albums as $album) {
       $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
       $album['images'] = Storage::disk('s3')->files($albumFolder);

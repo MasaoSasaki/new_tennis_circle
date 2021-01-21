@@ -13,7 +13,7 @@
               <form action="/admin/albums/{{ $album->id }}" method="post">
                 @csrf
                 {{ method_field('delete') }}
-                <button type="submit" onClick="return deleteConfirm();"><i class="far fa-trash-alt fa-fw"></i></button>
+                <button type="submit" onClick="return deleteAlbumConfirm();"><i class="far fa-trash-alt fa-fw"></i></button>
               </form>
             </li>
             @endforeach

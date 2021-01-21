@@ -5,6 +5,7 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\Admin\AlbumController as AdminAlbumController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ImageController as AdminImageController;
+use App\Http\Controllers\Admin\AlbumUserController as AdminAlbumUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,7 @@ Route::group(['middleware' => 'basicauth', 'prefix' => 'admin'], function() {
   Route::resource('/images', AdminImageController::class)->only(['index', 'store']);
   Route::post('/images/create', [AdminImageController::class, 'createImage']);
   Route::post('/images/{id}', [AdminImageController::class, 'destroyImage']);
+  Route::delete('/album_user', [AdminAlbumUserController::class, 'destroy']);
 });
 
 Auth::routes();

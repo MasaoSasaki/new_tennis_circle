@@ -6,9 +6,9 @@
 </div>
 <p>グループ公開/全体公開</p>
 <div class="custom-control custom-switch grouped-switch">
-  <input type="checkbox" class="custom-control-input" id="isGroupedSwitch" name="isGrouped" onChange="toggleGrouped(this);" {{ $album->isGrouped ? 'checked' : '' }} {{ $album->isPublished ? '' : 'disabled' }}>
+  <input type="checkbox" class="custom-control-input" id="isGroupedSwitch" name="isGrouped" onChange="toggleGrouped(this);" {{ $album->isGrouped || request()->is('*/create') ? 'checked' : '' }} {{ $album->isPublished ? '' : 'disabled' }}>
   <label id="isGrouped--label" class="custom-control-label" for="isGroupedSwitch">
-    {{ $album->isGrouped ? 'グループ公開' : '全体公開' }}
+    {{ $album->isGrouped || request()->is('*/create') ? 'グループ公開' : '全体公開' }}<br>
     @if(request()->is('*/create'))
       <span class="warning-message">（現在"非公開"になっています。）<span>
     @else
@@ -18,9 +18,9 @@
     @endif
   </label>
 </div>
-<div class="form-group create-member-field">
-  <label for="name">公開するユーザーを入力</label>
-  <input id="name" class="form-control" type="text" list="names" onBlur="addNames();">
+<div class="form-group create-member-field {{ request()->is('*/create') || $album->isGrouped ? '' : 'hide' }}">
+  <label for="name">公開したいユーザーを入力</label>
+  <input id="name" class="form-control" type="text" list="names" onBlur="addNames();" onFocus="{this.value = ''}">
   <a class="btn btn-light" onClick="addNames(this);">追加</a>
   <datalist id="names">
     @foreach($names as $index => $name)
@@ -31,5 +31,6 @@
       @endif
     @endforeach
   </datalist>
-  <span class="error-message"></span>
+  <span>公開するユーザー：</span>
+  <span class="error-message"></span><br>
 </div>

@@ -13,7 +13,7 @@ class CreateAlbumUsersTable extends Migration
    */
   public function up()
   {
-    Schema::create('album_users', function (Blueprint $table) {
+    Schema::create('album_user', function (Blueprint $table) {
       $table->id();
       $table->foreignId('album_id')->constrained();
       $table->foreignId('user_id')->constrained();
