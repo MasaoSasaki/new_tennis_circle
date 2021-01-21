@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AlbumController as AdminAlbumController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\ImageController as AdminImageController;
@@ -20,6 +21,9 @@ use App\Http\Controllers\Admin\AlbumUserController as AdminAlbumUserController;
 Route::get('/', function () {
   return view('welcome');
 })->name('root');
+Route::get('/feedback', [HomeController::class, 'feedback']);
+Route::get('/privacy-policy', [HomeController::class, 'privacy_policy']);
+Route::get('/terms', [HomeController::class, 'terms']);
 
 Route::group(['middleware' => 'auth'], function() {
   Route::resource('albums', AlbumController::class)->only(['index', 'show']);
