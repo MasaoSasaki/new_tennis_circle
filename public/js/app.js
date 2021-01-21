@@ -49800,16 +49800,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-}); // 削除確認メッセージ
-
-deleteAlbumConfirm = function deleteAlbumConfirm() {
-  if (window.confirm('本当に削除しますか？\nこのアルバムの保存済み写真データも同時に削除されます。')) {
-    return true;
-  } else {
-    alert('キャンセルされました。');
-    return false;
-  }
-};
+});
 
 deleteConfirm = function deleteConfirm() {
   if (window.confirm('本当に削除しますか？')) {

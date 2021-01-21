@@ -99,24 +99,17 @@ main {
     &-album-index {
       text-align: center;
 
-      form {
-        display: inline;
-
-        button {
-          padding: 0;
-          background: unset;
-          border: unset;
-        }
-      }
-
-      ul {
-
-        .title-link, .edit-link {
-          color: unset;
-        }
+      table {
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
 
         .title-link {
+          color: unset;
           text-decoration: underline;
+        }
+        .edit-link {
+          color: white;
         }
       }
     }

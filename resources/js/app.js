@@ -33,15 +33,6 @@ const app = new Vue({
   el: '#app',
 });
 
-// 削除確認メッセージ
-deleteAlbumConfirm = () => {
-  if(window.confirm('本当に削除しますか？\nこのアルバムの保存済み写真データも同時に削除されます。')) {
-    return true;
-  } else {
-    alert('キャンセルされました。');
-    return false;
-  }
-};
 deleteConfirm = () => {
   if(window.confirm('本当に削除しますか？')) {
     return true;
