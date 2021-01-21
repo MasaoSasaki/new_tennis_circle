@@ -5,12 +5,31 @@
 @import '~bootstrap/scss/bootstrap';
 
 // common
+
+@keyframes show{
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hide{
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 h1 {
   font-size: 1.2rem;
   font-family: cursive;
   margin-bottom: 0;
 }
-
+ul {
+  list-style: none;
+}
 img {
   object-fit: cover;
 }
@@ -19,19 +38,33 @@ header {
   text-align: center;
 }
 
+.grouped {
+  // 基本表示
+  max-height: 100vh;
+  opacity: 1;
+  transition: max-height 1s, opacity 1s;
+
+  // .hide付与で非表示
+  &.hide {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 1s, opacity 1s;
+  }
+}
+
 .create-member-field {
   text-align: left;
 
   // 基本表示
   max-height: 100vh;
   opacity: 1;
-  transition: 1s;
+  transition: max-height 1s, opacity 1s;
 
   // .hide付与で非表示
   &.hide {
     max-height: 0;
     opacity: 0;
-    transition: 1s;
+    transition: max-height 1s, opacity 1s;
   }
 
   label {
@@ -80,25 +113,17 @@ main {
     &-album-index {
       text-align: center;
 
-      form {
-        display: inline;
-
-        button {
-          padding: 0;
-          background: unset;
-          border: unset;
-        }
-      }
-
-      ul {
-        list-style: none;
-
-        .title-link, .edit-link {
-          color: unset;
-        }
+      table {
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
 
         .title-link {
+          color: unset;
           text-decoration: underline;
+        }
+        .edit-link {
+          color: white;
         }
       }
     }
@@ -117,7 +142,6 @@ main {
 
         #image-preview-list {
           padding: 0;
-          list-style: none;
           position: relative;
           perspective: 300px;
 
@@ -161,7 +185,13 @@ main {
             }
           }
         }
-
+        #file-list {
+          list-style: unset;
+        }
+        button {
+          position: relative;
+        }
+        // published.blade.php
         p {
           margin: 20px 0 0 0;
           text-align: left;
@@ -174,6 +204,12 @@ main {
     &-album-edit {
       text-align: center;
 
+      .edit-album {
+
+        button {
+          position: relative;
+        }
+      }
       form {
 
         p {
@@ -184,7 +220,20 @@ main {
           text-align: left;
         }
       }
+      .album-users {
 
+        ul {
+          padding: 0 40px;
+
+          li {
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+          }
+
+        }
+      }
       .create-images {
 
         .custom-file {
@@ -193,11 +242,11 @@ main {
 
         ul {
           text-align: left;
+          list-style: unset;
         }
 
         #image-preview-list {
           padding: 0;
-          list-style: none;
           position: relative;
           perspective: 300px;
 
@@ -241,6 +290,7 @@ main {
             }
           }
         }
+
       }
 
       .delete-images {
@@ -249,7 +299,6 @@ main {
         ul {
           padding: 0;
           display: flex;
-          list-style: none;
           flex-wrap: wrap;
 
           li {
@@ -302,7 +351,6 @@ main {
 
             ul {
               padding: 0;
-              list-style: none;
               overflow: hidden;
               position: relative;
               z-index: 1;
@@ -348,7 +396,6 @@ main {
         .images {
 
           ul {
-            list-style: none;
             padding: 0;
             display: grid;
             width: 100%;
@@ -418,32 +465,16 @@ main {
           top: 0;
           left: 0;
 
-          @keyframes show{
-            from {
-              opacity: 0;
-            }
-            to {
-              opacity: 1;
-            }
-          }
-          @keyframes hide{
-            from {
-              opacity: 1;
-            }
-            to {
-              opacity: 0;
-            }
-          }
           // 基本非表示
-          display: none;
-          animation: hide 0.1s linear 0s;
-          animation-fill-mode: forwards;
+          opacity: 0;
+          transition: 0.5s;
+          z-index: -1;
 
           // 表示
           &.show {
-            display: block;
-            animation: show 0.1s linear 0s;
-            animation-fill-mode: forwards;
+            opacity: 1;
+            transition: opacity 0.5s;
+            z-index: 1;
           }
           i {
             color: lightgray;
@@ -537,7 +568,6 @@ footer {
     ul {
       text-align: left;
       flex: 1;
-      list-style: none;
       padding: 0;
 
       li {

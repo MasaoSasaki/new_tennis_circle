@@ -49800,22 +49800,12 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-}); // 削除確認メッセージ
+});
 
 deleteConfirm = function deleteConfirm() {
-  if (window.confirm('本当に削除しますか？\nこのアルバムの保存済み写真データも同時に削除されます。')) {
-    return true;
-  } else {
-    alert('キャンセルされました。');
-    return false;
-  }
-};
-
-deleteImageConfirm = function deleteImageConfirm() {
   if (window.confirm('本当に削除しますか？')) {
     return true;
   } else {
-    alert('キャンセルされました。');
     return false;
   }
 }; // アップロード画像プレビュー
@@ -49833,21 +49823,23 @@ previewImages = function previewImages(obj) {
     return;
   }
 
-  var _loop = function _loop(i) {
+  var _loop = function _loop(_i) {
     var fileReader = new FileReader();
-    fileReader.readAsDataURL(files[i]);
+    fileReader.readAsDataURL(files[_i]);
     imagePreviewList.insertAdjacentHTML('beforeend', "<li></li>");
     fileList.insertAdjacentHTML('beforeend', "<li></li>");
 
     fileReader.onload = function () {
       var dataUrl = fileReader.result;
-      imagePreviewList.children[i].insertAdjacentHTML('afterbegin', "<img src=\"".concat(dataUrl, "\">"));
-      fileList.children[i].insertAdjacentHTML('afterbegin', files[i].name);
+
+      imagePreviewList.children[_i].insertAdjacentHTML('afterbegin', "<img src=\"".concat(dataUrl, "\">"));
+
+      fileList.children[_i].insertAdjacentHTML('afterbegin', files[_i].name);
     };
   };
 
-  for (var i = 0; i < files.length; i++) {
-    _loop(i);
+  for (var _i = 0; _i < files.length; _i++) {
+    _loop(_i);
   }
 
   ;
@@ -49857,18 +49849,14 @@ previewImages = function previewImages(obj) {
 
 togglePublished = function togglePublished(status) {
   var isPublishedLabel = document.getElementById('isPublished--label');
-  var isGroupedInput = document.getElementById('isGroupedSwitch');
-  var isGroupedLabel = document.getElementById('isGrouped--label');
-  var isPublishedWarn = document.getElementsByClassName('warning-message')[0];
+  var groupedField = document.getElementsByClassName('grouped')[0];
 
   if (status.checked) {
     isPublishedLabel.innerText = "公開";
-    isGroupedInput.removeAttribute('disabled');
-    isPublishedWarn.remove();
+    groupedField.classList.remove('hide');
   } else {
     isPublishedLabel.innerText = "非公開";
-    isGroupedInput.setAttribute('disabled', 'disabled');
-    isGroupedLabel.insertAdjacentHTML('beforeend', '<span class="warning-message">（現在"非公開"になっています。）<span>');
+    groupedField.classList.add('hide');
   }
 };
 
@@ -49897,8 +49885,6 @@ showModal = function showModal(img) {
 hideModal = function hideModal() {
   var modalWindow = document.getElementsByClassName('modal-window')[0];
   modalWindow.classList.remove('show');
-  var modalImage = document.getElementsByClassName('modal-image')[0];
-  modalImage.setAttribute('src', '');
 }; // アルバムにユーザー名を関連づける
 
 
@@ -49913,9 +49899,26 @@ addNames = function addNames(obj) {
   errorMessage.innerText = "";
 
   if (!userNames.includes(inputField.value)) {
+    if (inputField.value == "") {
+      return;
+    }
+
     errorMessage.innerText = "名前が見つかりませんでした。";
     return;
   } else {
+    var nameList = document.getElementsByClassName('name');
+
+    if (nameList.length >= 1) {
+      for (i = 0; i < nameList.length; i++) {
+        if ("".concat(inputField.value, " X") == nameList[i].textContent) {
+          errorMessage.innerText = "すでに選択されています。";
+          return;
+        }
+      }
+
+      ;
+    }
+
     document.getElementsByClassName('create-member-field')[0].insertAdjacentHTML('beforeend', "<span class=\"name\">".concat(inputField.value, " <span class=\"delete-name\" onClick=\"removeName(this);\">X</span><input type=\"hidden\" name=\"names[]\" value=\"").concat(inputField.value, "\"></span>"));
     inputField.value = "";
   }
