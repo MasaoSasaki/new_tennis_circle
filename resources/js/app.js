@@ -67,17 +67,13 @@ previewImages = (obj) => {
 // Checkbox toggle action
 togglePublished = (status) => {
   const isPublishedLabel = document.getElementById('isPublished--label');
-  const isGroupedInput = document.getElementById('isGroupedSwitch');
-  const isGroupedLabel = document.getElementById('isGrouped--label');
-  const isPublishedWarn = document.getElementsByClassName('warning-message')[0];
+  const groupedField = document.getElementsByClassName('grouped')[0];
   if (status.checked) {
     isPublishedLabel.innerText =  "公開";
-    isGroupedInput.removeAttribute('disabled');
-    isPublishedWarn.remove();
+    groupedField.classList.remove('hide');
   } else {
     isPublishedLabel.innerText =  "非公開";
-    isGroupedInput.setAttribute('disabled', 'disabled');
-    isGroupedLabel.insertAdjacentHTML('beforeend', '<span class="warning-message">（現在"非公開"になっています。）<span>');
+    groupedField.classList.add('hide');
   }
 }
 toggleGrouped = (status) => {

@@ -49849,18 +49849,14 @@ previewImages = function previewImages(obj) {
 
 togglePublished = function togglePublished(status) {
   var isPublishedLabel = document.getElementById('isPublished--label');
-  var isGroupedInput = document.getElementById('isGroupedSwitch');
-  var isGroupedLabel = document.getElementById('isGrouped--label');
-  var isPublishedWarn = document.getElementsByClassName('warning-message')[0];
+  var groupedField = document.getElementsByClassName('grouped')[0];
 
   if (status.checked) {
     isPublishedLabel.innerText = "公開";
-    isGroupedInput.removeAttribute('disabled');
-    isPublishedWarn.remove();
+    groupedField.classList.remove('hide');
   } else {
     isPublishedLabel.innerText = "非公開";
-    isGroupedInput.setAttribute('disabled', 'disabled');
-    isGroupedLabel.insertAdjacentHTML('beforeend', '<span class="warning-message">（現在"非公開"になっています。）<span>');
+    groupedField.classList.add('hide');
   }
 };
 
