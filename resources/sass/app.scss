@@ -230,6 +230,10 @@ main {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+
+            button {
+              position: relative;
+            }
           }
 
         }
