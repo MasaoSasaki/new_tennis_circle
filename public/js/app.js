@@ -49817,11 +49817,12 @@ previewImages = function previewImages(obj) {
   fileList.innerHTML = "";
   imagePreviewList.innerHTML = "";
   var files = obj.files;
-  document.getElementsByClassName('custom-file-label')[0].innerText = "".concat(files.length, " selected");
 
   if (files.length === 0) {
     return;
   }
+
+  document.getElementsByClassName('custom-file-label')[0].innerText = "".concat(files.length, " selected");
 
   var _loop = function _loop(_i) {
     var fileReader = new FileReader();
@@ -49926,6 +49927,34 @@ addNames = function addNames(obj) {
 
 removeName = function removeName(obj) {
   obj.parentElement.remove();
+};
+
+postIsPublishedData = function postIsPublishedData(radioForm) {
+  var userId = radioForm.name.replace('isPublished', '').replace('user_', '');
+  var request = new XMLHttpRequest();
+  var publishedData = radioForm.id == "publicUser_".concat(userId) ? true : false;
+  var csrfToken = radioForm.parentNode.parentNode.childNodes[0].value;
+
+  if (publishedData) {
+    request.open('POST', "/admin/public_user/".concat(userId), true);
+  } else {
+    request.open('POST', "/admin/private_user/".concat(userId), true);
+  }
+
+  request.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+  request.setRequestHeader('X-CSRF-Token', csrfToken);
+  request.send();
+
+  request.onreadystatechange = function () {
+    // while文推奨
+    if (request.readyState == 4) {
+      if (request.status == 200) {
+        console.log('リクエストが完了しました。');
+      }
+    } else {
+      console.log('通信中');
+    }
+  };
 };
 
 /***/ }),

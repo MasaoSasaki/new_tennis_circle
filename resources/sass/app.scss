@@ -321,26 +321,38 @@ main {
       }
     }
     &-image-index {
-
       .images {
-
         img {
           width: 30%;
+        }
+      }
+    }
+
+    &-user {
+      &-index {
+        .card-body {
+          ul {
+            li {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+          .albums-link {
+            text-align: center;
+          }
         }
       }
     }
   }
 
   .welcome {
-
     p {
       margin: 1rem auto;
     }
   }
+
   .album {
-
     &-index {
-
       .card {
         margin-bottom: 20px;
 

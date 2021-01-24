@@ -48,8 +48,8 @@ previewImages = (obj) => {
   fileList.innerHTML = "";
   imagePreviewList.innerHTML = "";
   const files = obj.files;
-  document.getElementsByClassName('custom-file-label')[0].innerText = `${files.length} selected`
   if (files.length === 0) { return }
+  document.getElementsByClassName('custom-file-label')[0].innerText = `${files.length} selected`
   for (let i = 0; i < files.length; i++) {
     let fileReader = new FileReader();
     fileReader.readAsDataURL(files[i])
@@ -132,4 +132,29 @@ addNames = (obj) => {
 
 removeName = (obj) => {
   obj.parentElement.remove();
+}
+
+postIsPublishedData = (radioForm) => {
+  const userId = radioForm.name.replace('isPublished', '').replace('user_', '');
+  const request = new XMLHttpRequest();
+  const publishedData = radioForm.id == `publicUser_${userId}` ? true : false ;
+  const csrfToken = radioForm.parentNode.parentNode.childNodes[0].value;
+  if (publishedData) {
+    request.open('POST', `/admin/public_user/${userId}`, true);
+  } else {
+    request.open('POST', `/admin/private_user/${userId}`, true);
+  }
+  request.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+  request.setRequestHeader('X-CSRF-Token', csrfToken);
+  request.send();
+  request.onreadystatechange = () => {
+    // while文推奨
+    if (request.readyState == 4) {
+      if (request.status == 200) {
+        console.log('リクエストが完了しました。');
+      }
+    } else {
+      console.log('通信中')
+    }
+  }
 }

@@ -11474,6 +11474,15 @@ main .admin-image-index .images img {
   width: 30%;
 }
 
+main .admin-user-index .card-body ul li {
+  display: flex;
+  justify-content: space-between;
+}
+
+main .admin-user-index .card-body .albums-link {
+  text-align: center;
+}
+
 main .welcome p {
   margin: 1rem auto;
 }
