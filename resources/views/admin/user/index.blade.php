@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-header">ユーザー一覧</div>
         <div class="card-body">
-          <p>[非表示]にすると、全体公開のアルバムも表示されなくなります。</p>
+          <p>[非表示]にすると、<u>全体公開</u>のアルバムも表示されなくなります。</p>
           <ul>
             @foreach($users as $index => $user)
               <li>

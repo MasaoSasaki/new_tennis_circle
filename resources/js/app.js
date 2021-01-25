@@ -134,21 +134,25 @@ removeName = (obj) => {
   obj.parentElement.remove();
 }
 
+// change isPublished to users
 postIsPublishedData = (radioForm) => {
   const userId = radioForm.name.replace('isPublished', '').replace('user_', '');
   const request = new XMLHttpRequest();
   const publishedData = radioForm.id == `publicUser_${userId}` ? true : false ;
   const csrfToken = radioForm.parentNode.parentNode.childNodes[0].value;
+  const name = radioForm.parentNode.parentNode.parentNode.childNodes[0].innerText;
+  const message = `${ name } を"${ publishedData ? '表示' : '非表示' }"に変更しました。 `;
   if (publishedData) {
     request.open('POST', `/admin/public_user/${userId}`, true);
+    flashWindow(message);
   } else {
     request.open('POST', `/admin/private_user/${userId}`, true);
+    flashWindow(message);
   }
   request.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
   request.setRequestHeader('X-CSRF-Token', csrfToken);
   request.send();
   request.onreadystatechange = () => {
-    // while文推奨
     if (request.readyState == 4) {
       if (request.status == 200) {
         console.log('リクエストが完了しました。');
@@ -157,4 +161,16 @@ postIsPublishedData = (radioForm) => {
       console.log('通信中')
     }
   }
+}
+flashWindow = (message) => {
+  const flashWindow = document.getElementsByClassName('flash-window')[0];
+  const flashMessage = document.getElementsByClassName('flash-message')[0];
+  removeFlashWindow();
+  flashMessage.remove();
+  flashWindow.insertAdjacentHTML('beforeend', `<p class="flash-message">${ message } <span onClick="removeFlashWindow();">X</span></p>`);
+  flashWindow.classList.add('show');
+  setTimeout(removeFlashWindow, 2000);
+}
+removeFlashWindow = () => {
+  document.getElementsByClassName('flash-window')[0].classList.remove('show');
 }

@@ -49927,18 +49927,23 @@ addNames = function addNames(obj) {
 
 removeName = function removeName(obj) {
   obj.parentElement.remove();
-};
+}; // change isPublished to users
+
 
 postIsPublishedData = function postIsPublishedData(radioForm) {
   var userId = radioForm.name.replace('isPublished', '').replace('user_', '');
   var request = new XMLHttpRequest();
   var publishedData = radioForm.id == "publicUser_".concat(userId) ? true : false;
   var csrfToken = radioForm.parentNode.parentNode.childNodes[0].value;
+  var name = radioForm.parentNode.parentNode.parentNode.childNodes[0].innerText;
+  var message = "".concat(name, " \u3092\"").concat(publishedData ? '表示' : '非表示', "\"\u306B\u5909\u66F4\u3057\u307E\u3057\u305F\u3002 ");
 
   if (publishedData) {
     request.open('POST', "/admin/public_user/".concat(userId), true);
+    flashWindow(message);
   } else {
     request.open('POST', "/admin/private_user/".concat(userId), true);
+    flashWindow(message);
   }
 
   request.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
@@ -49946,7 +49951,6 @@ postIsPublishedData = function postIsPublishedData(radioForm) {
   request.send();
 
   request.onreadystatechange = function () {
-    // while文推奨
     if (request.readyState == 4) {
       if (request.status == 200) {
         console.log('リクエストが完了しました。');
@@ -49955,6 +49959,20 @@ postIsPublishedData = function postIsPublishedData(radioForm) {
       console.log('通信中');
     }
   };
+};
+
+flashWindow = function flashWindow(message) {
+  var flashWindow = document.getElementsByClassName('flash-window')[0];
+  var flashMessage = document.getElementsByClassName('flash-message')[0];
+  removeFlashWindow();
+  flashMessage.remove();
+  flashWindow.insertAdjacentHTML('beforeend', "<p class=\"flash-message\">".concat(message, " <span onClick=\"removeFlashWindow();\">X</span></p>"));
+  flashWindow.classList.add('show');
+  setTimeout(removeFlashWindow, 2000);
+};
+
+removeFlashWindow = function removeFlashWindow() {
+  document.getElementsByClassName('flash-window')[0].classList.remove('show');
 };
 
 /***/ }),
