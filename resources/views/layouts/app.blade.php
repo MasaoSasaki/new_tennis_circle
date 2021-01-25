@@ -14,6 +14,7 @@
 <body oncontextmenu="return false;">
   <div id="app">
     <header>
+      <div class="flash-window"><p class="flash-message"></p></div>
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
           <a class="navbar-brand" href="{{ url('/albums') }}"><h1>Tennis Circle</h1></a>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIsGroupedToAlbumsTable extends Migration
+class AddPublishedToUsersTable extends Migration
 {
   /**
    * Run the migrations.
@@ -13,8 +13,8 @@ class AddIsGroupedToAlbumsTable extends Migration
    */
   public function up()
   {
-    Schema::table('albums', function (Blueprint $table) {
-      $table->boolean('isGrouped')->default(true);
+    Schema::table('users', function (Blueprint $table) {
+      $table->boolean('isPublished')->default(true);
     });
   }
 
@@ -25,8 +25,8 @@ class AddIsGroupedToAlbumsTable extends Migration
    */
   public function down()
   {
-    Schema::table('albums', function (Blueprint $table) {
-      $table->dropColumn('isGrouped');
+    Schema::table('users', function (Blueprint $table) {
+      $table->dropColumn('isPublished');
     });
   }
 }

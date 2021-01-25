@@ -16,6 +16,7 @@
           <ul>
             <li><a href="/admin/albums">アルバムの一覧・編集</a></li>
             <li><a href="/admin/albums/create">アルバムの追加</a></li>
+            <li><a href="/admin/users">ユーザーの一覧・公開設定</a></li>
           </ul>
           <p>一般ページ</p>
           <ul>
