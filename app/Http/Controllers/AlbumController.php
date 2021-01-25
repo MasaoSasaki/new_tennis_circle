@@ -13,14 +13,19 @@ class AlbumController extends Controller
 {
   public function index()
   {
-    $privateAlbums = User::find(Auth::id())->albums()->where('isPublished', true)->get();
-    $publicAlbums = Album::where('isPublished', true)->where('isGrouped', false)->get();
-    $albums = collect($publicAlbums->merge($privateAlbums))->sortByDesc('created_at');
-    forEach($albums as $album) {
-      $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
-      $album['images'] = Storage::disk('s3')->files($albumFolder);
+    $user = User::find(Auth::id());
+    if ($user['isPublished']) {
+      $privateAlbums = $user->albums()->where('isPublished', true)->get();
+      $publicAlbums = Album::where('isPublished', true)->where('isGrouped', false)->get();
+      $albums = collect($publicAlbums->merge($privateAlbums))->sortByDesc('created_at');
+      forEach($albums as $album) {
+        $albumFolder = preg_replace('/\s+|-|:|/', '', $album->created_at);
+        $album['images'] = Storage::disk('s3')->files($albumFolder);
+      }
+    } else {
+      $albums = [];
     }
-    return view('album/index', compact('albums'));
+    return view('album/index', compact('albums', 'user'));
   }
 
   public function show($id)
