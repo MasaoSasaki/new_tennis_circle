@@ -134,6 +134,11 @@ header {
   color: red;
 }
 
+// 既存のセレクタを上書き
+.form-control::placeholder {
+  opacity: 0.3;
+}
+
 // unique
 main {
   font-family: 'Nunito';

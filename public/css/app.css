@@ -11052,6 +11052,18 @@ header {
   color: red;
 }
 
+.form-control::-moz-placeholder {
+  opacity: 0.3;
+}
+
+.form-control:-ms-input-placeholder {
+  opacity: 0.3;
+}
+
+.form-control::placeholder {
+  opacity: 0.3;
+}
+
 main {
   font-family: "Nunito";
 }
