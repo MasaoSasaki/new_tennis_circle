@@ -5,7 +5,6 @@
 @import '~bootstrap/scss/bootstrap';
 
 // common
-
 @keyframes show{
   from {
     opacity: 0;
@@ -130,6 +129,9 @@ header {
   }
 }
 
+.success-message {
+  color: green;
+}
 .error-message {
   color: red;
 }
