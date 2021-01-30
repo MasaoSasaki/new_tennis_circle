@@ -5,7 +5,6 @@
 @import '~bootstrap/scss/bootstrap';
 
 // common
-
 @keyframes show{
   from {
     opacity: 0;
@@ -130,8 +129,16 @@ header {
   }
 }
 
+.success-message {
+  color: green;
+}
 .error-message {
   color: red;
+}
+
+// 既存のセレクタを上書き
+.form-control::placeholder {
+  opacity: 0.3;
 }
 
 // unique
