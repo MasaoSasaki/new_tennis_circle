@@ -49780,6 +49780,8 @@ var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.j
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./validates */ "./resources/js/validates.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -50088,6 +50090,123 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/validates.js":
+/*!***********************************!*\
+  !*** ./resources/js/validates.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+validates = function validates(form) {
+  var value = form.value;
+  removeClass(form);
+
+  switch (form.name) {
+    case 'last_name':
+      if (value === '') {
+        openError('文字が入力されていません。', form);
+        return;
+      }
+
+      addValidClass(form);
+      break;
+
+    case 'first_name':
+      if (value === '') {
+        openError('文字が入力されていません。', form);
+        return;
+      }
+
+      addValidClass(form);
+      break;
+
+    case 'email':
+      if (value === '') {
+        openError('文字が入力されていません。', form);
+        return;
+      }
+
+      if (!value.match(/@/)) {
+        openError('"@(アットマーク)"を含めてください。', form);
+        return;
+      }
+
+      if (!value.match(/\./)) {
+        openError('".(ドット)"を含めてください。', form);
+        return;
+      }
+
+      addValidClass(form);
+      break;
+
+    case 'password':
+      if (value === '') {
+        openError('文字が入力されていません。', form);
+        return;
+      }
+
+      if (value.length < 8) {
+        openError('8文字以上入力してください。', form);
+        return;
+      }
+
+      var passwordConfirm = document.getElementById('password-confirm').value;
+
+      if (passwordConfirm !== "" && value !== passwordConfirm) {
+        openError('パスワードが一致しません。', form);
+        return;
+      }
+
+      addValidClass(form);
+      break;
+
+    case 'password_confirmation':
+      if (value === '') {
+        openError('文字が入力されていません。', form);
+        return;
+      }
+
+      if (value.length < 8) {
+        openError('8文字以上入力してください。', form);
+        return;
+      }
+
+      var password = document.getElementById('password').value;
+
+      if (value !== password) {
+        openError('パスワードが一致しません。', form);
+        return;
+      }
+
+      addValidClass(form);
+      break;
+  }
+};
+
+addInvalidClass = function addInvalidClass(form) {
+  form.classList.add('is-invalid');
+};
+
+addValidClass = function addValidClass(form) {
+  form.nextElementSibling.innerHTML = "<span class=\"success-message\">OK</span>";
+  form.classList.add('is-valid');
+};
+
+removeClass = function removeClass(form) {
+  if (form.classList.contains('is-valid')) {
+    form.classList.remove('is-valid');
+  } else if (form.classList.contains('is-invalid')) {
+    form.classList.remove('is-invalid');
+  }
+};
+
+openError = function openError(error, form) {
+  form.nextElementSibling.innerHTML = "<span class=\"error-message\">".concat(error, "</span>");
+  addInvalidClass(form);
+};
 
 /***/ }),
 

@@ -7,6 +7,7 @@
 const { forEach } = require('lodash');
 
 require('./bootstrap');
+require('./validates');
 
 window.Vue = require('vue');
 

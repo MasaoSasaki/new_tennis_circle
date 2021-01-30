@@ -26,7 +26,7 @@
             @endforeach
           </ul>
           <hr size="10" color="#ccc">
-          <div class="albums-link"><a href="/albums">アルバム一覧へもどる</a></div>
+          <div class="albums-link"><a href="/admin">管理者画面へもどる</a></div>
         </div>
       </div>
     </div>

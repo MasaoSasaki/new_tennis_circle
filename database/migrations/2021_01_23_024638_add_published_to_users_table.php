@@ -14,7 +14,7 @@ class AddPublishedToUsersTable extends Migration
   public function up()
   {
     Schema::table('users', function (Blueprint $table) {
-      $table->boolean('isPublished')->default(true);
+      $table->boolean('isPublished')->default(false);
     });
   }
 
